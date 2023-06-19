@@ -1,6 +1,6 @@
 .our-team{
-    border-left: 8px solid #3b336a;
-    border-bottom: 8px solid #3b336a;
+    border-left: 8px solid #414b6c;
+    border-bottom: 8px solid #414b6c;
 }
 .our-team .team-image{
     position: relative;
@@ -21,7 +21,7 @@
     line-height: 30px;
     padding: 40px 50px;
     opacity: 0;
-    background-color: rgba(59, 51, 106, 0.6);
+    background-color: rgba(65, 75, 108, 0.6);
     transition: all 0.5s ease 0s;
 }
 .our-team:hover .description{
@@ -34,7 +34,7 @@
     position: absolute;
     top: 40px;
     left: -27px;
-    background: #3b336a;
+    background: #414b6c;
     text-align: center;
     transform: translate(25px, 0px) rotateY(90deg);
     transition: all 0.5s ease 0s;
@@ -42,6 +42,7 @@
 .our-team:hover .social{
     transform: translate(0px, 0px) rotateY(0deg);
 }
+
 .our-team .social li{
     display: block;
     margin-bottom: 10px;
@@ -51,19 +52,20 @@
     width: 40px;
     height: 35px;
     font-size: 17px;
-    color: #fff;
+
     line-height: 30px;
     transition: all 0.5s ease 0s;
+    color: white !important;
 }
 .our-team .social li a:hover{
-    background: #bc3fbf;
+    background: #b3b6d9;
 }
 .our-team .team-info{
     padding: 20px;
 }
 .our-team .title{
     font-size: 18px;
-    color: #3b336a;
+    color: #414b6c;
     letter-spacing: 4px;
     margin: 0 0 15px 0;
     transition: all 0.5s ease 0s;
@@ -71,12 +73,12 @@
 .our-team .post{
     display: block;
     font-size: 14px;
-    color: #3b336a;
+    color: #414b6c;
     text-transform: capitalize;
 }
 .our-team .title:hover,
 .our-team .post:hover{
-    color: #bc3fbf;
+    color: #b3b6d9;
 }
 @media only screen and (max-width: 990px){
     .our-team{ margin-bottom: 30px; }

@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Academic Project Page</title>
+    <title>Instructing and Evaluating Generative Models</title>
     <link rel="icon" type="image/x-icon" href="static/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
@@ -84,7 +84,7 @@
             <h2 class="title is-3">Projects</h2>
             <div class="wrap">
                 <div class="tile" onclick="location.href='projects/safe-latent-diffusion';">>
-                    <img src='https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80'/>
+                    <img src='static/images/thumbnails/sld_thumbnail.png'/>
                     <div class="text">
                         <h1>Mitigating Inappropriateness</h1>
                         <h2 class="animate-text">Safe Latent Diffusion: Mitigating Inappropriate Degeneration in
@@ -104,7 +104,7 @@
 
 
                 <div class="tile" onclick="location.href='projects/semantic-guidance';">
-                    <img src='https://images.unsplash.com/photo-1458668383970-8ddd3927deed?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1004&q=80'/>
+                    <img src='static/images/thumbnails/sega_thumbnail.png'/>
                     <div class="text">
                         <h1>Instructing text-to-image</h1>
                         <h2 class="animate-text">SEGA: Instructing Diffusion using Semantic Dimensions</h2>
@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="tile" onclick="location.href='projects/fair-diffusion';">
-                    <img src='https://images.unsplash.com/photo-1422393462206-207b0fbd8d6b?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80'/>
+                    <img src='static/images/thumbnails/fairdiff_thumbnail.png'/>
                     <div class="text">
                         <h1>Instructing on Fairness</h1>
                         <h2 class="animate-text">Fair Diffusion: Instructing Text-to-Image Generation Models on
@@ -139,9 +139,9 @@
                     </div>
                 </div>
             </div>
-            <div class="wrap" onclick="location.href='projects/t2i-eval';">
-                <div class="tile">
-                    <img src='https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80'/>
+            <div class="wrap" >
+                <div class="tile" onclick="location.href='projects/t2i-eval';">
+                    <img src='static/images/thumbnails/benchmark_thumbnail.png'/>
                     <div class="text">
                         <h1>Large-scale Evaluation</h1>
                         <h2 class="animate-text">Mitigating Inappropriateness in Image Generation: Can there be Value in
@@ -158,6 +158,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="tile" onclick="location.href='projects/multifusion';">
+                    <img src='static/images/thumbnails/multifusion_thumbnail.png'/>
+                    <div class="text">
+                        <h1>Multi-Modal, Multi-Lingual Generation</h1>
+                        <h2 class="animate-text">MultiFusion: Fusing Pre-Trained Models for Multi-Lingual, Multi-Modal Image Generation</h2>
+                        <p class="animate-text">We propose MultiFusion that allows one to express complex and nuanced concepts with arbitrarily interleaved inputs of multiple modalities and languages. MutliFusion leverages pre-trained models and aligns them for integration into a cohesive system, thereby avoiding the need for extensive training from scratch. </p>
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
 
@@ -177,17 +191,16 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="team-image">
-                            <img src="static/images/mbrack.JPG">
+                            <img src="static/images/mbrack.JPG" alt="Profile picture of Manuel Brack">
                             <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
-                                ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
-                                tristique purus turpis. Maecenas vulputate.
+                                Manuel is a PhD candidate at the German Research Center for AI (DFKI) and TU Darmstadt. In his research he
+                                focuses on human-centric AI in the context of large-scale generative models.
                             </p>
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack" target="_blank"><i class="fa fa-user"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/manuel-brack-17b07718b/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://twitter.com/MBrack_AIML" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://scholar.google.com/citations?user=kJ9Abf8AAAAJ" target="_blank"><i class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
@@ -200,17 +213,17 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="team-image">
-                            <img src="images/img-2.jpg">
+                            <img src="static/images/bdeiseroth.jpg" alt="Profile picture of Björn Deiseroth">
                             <p class="description">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
                                 ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
                                 tristique purus turpis. Maecenas vulputate.
                             </p>
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-user"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
@@ -222,17 +235,17 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="team-image">
-                            <img src="images/img-2.jpg">
+                            <img src="static/images/ffriedrich.png" alt="Profile picture of Felix Friedrich">
                             <p class="description">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
                                 ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
                                 tristique purus turpis. Maecenas vulputate.
                             </p>
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-user"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
@@ -243,21 +256,22 @@
                 </div>
 
             </div>
+            <br>
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="team-image">
-                            <img src="images/img-1.jpg">
+                            <img src="static/images/dhintersdorf.jpg" alt="Profile picture of Dominik Hintersdorf">
                             <p class="description">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
                                 ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
                                 tristique purus turpis. Maecenas vulputate.
                             </p>
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-user"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
@@ -270,17 +284,17 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="team-image">
-                            <img src="images/img-2.jpg">
+                            <img src="static/images/pschramowski.jpeg" alt="Profile picture of Patrick Schramowski">
                             <p class="description">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
                                 ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
                                 tristique purus turpis. Maecenas vulputate.
                             </p>
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-user"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
@@ -292,17 +306,17 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="our-team">
                         <div class="team-image">
-                            <img src="images/img-2.jpg">
+                            <img src="static/images/lstruppek.jpg"  alt="Profile picture of Lukas Struppek">
                             <p class="description">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
                                 ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
                                 tristique purus turpis. Maecenas vulputate.
                             </p>
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-user"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
