@@ -52,6 +52,7 @@
 .tile h2
 {
   font-weight:900;
+  font-size:20px;
   margin:20px 0 0 0;
   font-style:italic;
    transform: translateX(200px);

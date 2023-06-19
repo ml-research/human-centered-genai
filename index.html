@@ -30,6 +30,7 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="static/css/tiles.css">
+    <link rel="stylesheet" href="static/css/team.css">
     <link rel="stylesheet" href="static/css/bulma.min.css">
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="static/css/bulma-slider.min.css">
@@ -37,6 +38,8 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="static/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
@@ -44,6 +47,9 @@
     <script src="static/js/bulma-carousel.min.js"></script>
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -84,9 +90,8 @@
                         <h2 class="animate-text">Safe Latent Diffusion: Mitigating Inappropriate Degeneration in
                             Diffusion Models</h2>
                         <p class="animate-text">
-                            To help combat inappropriate degeneration in text-to-image models, we present safe latent
-                            diffusion (SLD). Specifically, to measure the inappropriate degeneration due to unfiltered
-                            and imbalanced training sets, we establish a novel image generation test bed-inappropriate
+                            Safe Latent Diffusion suppresses inappropriate degeneration of generative image models.
+                            Additionally, we establish a novel image generation test bed-inappropriate
                             image prompts (I2P)-containing dedicated, real-world image-to-text prompts covering concepts
                             such as nudity and violence. </p>
                         <div class="dots">
@@ -133,15 +138,19 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
             <div class="wrap" onclick="location.href='projects/t2i-eval';">
                 <div class="tile">
                     <img src='https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80'/>
                     <div class="text">
                         <h1>Large-scale Evaluation</h1>
-                        <h2 class="animate-text">Mitigating Inappropriateness in Image Generation: Can there be Value in Reflecting the World's Ugliness?</h2>
-                        <p class="animate-text">We demonstrate inappropriate degeneration on a large-scale for various generative text-to-image models, thus motivating the need for monitoring and moderating them at deployment.
-                            To this end, we evaluate mitigation strategies at inference to suppress the generation of inappropriate content. </p>
+                        <h2 class="animate-text">Mitigating Inappropriateness in Image Generation: Can there be Value in
+                            Reflecting the World's Ugliness?</h2>
+                        <p class="animate-text">We demonstrate inappropriate degeneration on a large-scale for various
+                            generative text-to-image models, thus motivating the need for monitoring and moderating them
+                            at deployment.
+                            To this end, we evaluate mitigation strategies at inference to suppress the generation of
+                            inappropriate content. </p>
                         <div class="dots">
                             <span></span>
                             <span></span>
@@ -164,6 +173,147 @@
         <div class="container">
             <!-- Paper video. -->
             <h2 class="title is-3">People</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="team-image">
+                            <img src="static/images/mbrack.JPG">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
+                                ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
+                                tristique purus turpis. Maecenas vulputate.
+                            </p>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="title">Manuel Brack</h3>
+                            <span class="post">DFKI, TU Darmstadt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="team-image">
+                            <img src="images/img-2.jpg">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
+                                ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
+                                tristique purus turpis. Maecenas vulputate.
+                            </p>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="title">Björn Deiseroth</h3>
+                            <span class="post">Aleph Alpha, TU Darmstadt</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="team-image">
+                            <img src="images/img-2.jpg">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
+                                ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
+                                tristique purus turpis. Maecenas vulputate.
+                            </p>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="title">Felix Friedrich</h3>
+                            <span class="post">TU Darmstadt, hessian.AI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="team-image">
+                            <img src="images/img-1.jpg">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
+                                ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
+                                tristique purus turpis. Maecenas vulputate.
+                            </p>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="title">Dominik Hintersdorf</h3>
+                            <span class="post">TU Darmstadt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="team-image">
+                            <img src="images/img-2.jpg">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
+                                ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
+                                tristique purus turpis. Maecenas vulputate.
+                            </p>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="title">Patrick Schramowski</h3>
+                            <span class="post">DFKI, TU Darmstadt, hessian.AI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="team-image">
+                            <img src="images/img-2.jpg">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut
+                                ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc
+                                tristique purus turpis. Maecenas vulputate.
+                            </p>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="title">Lukas Struppek</h3>
+                            <span class="post">Tu Darmstadt</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </section>
