@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="Safe Latent Diffusion - Project Page">
+    <meta property="og:title" content="Safe Latent Diffusion - Project Page"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:url" content="URL OF THE WEBSITE"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="/static/image/your_banner_image.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+
+    <meta name="twitter:title" content="Safe Latent Diffusion - Project Page">
+    <meta name="twitter:description" content="">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="/static/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords"
+          content="safe latent diffusion, image generation, text-to-image, stable diffusion, imagen, dall-e">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Safe Latent Diffusion</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="/static/js/fontawesome.all.min.js"></script>
+    <script src="/static/js/bulma-carousel.min.js"></script>
+    <script src="/static/js/bulma-slider.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div style="margin: 10px">
+    <a href="/index.html"
+       target="_blank"
+       class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa fa-home"></i>
+                        </span>
+        <span>Home</span>
+    </a>
+</div>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Safe Latent Diffusion <br>Mitigating Inappropriate
+                        Degeneration in Diffusion Models</h1>
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                        <span class="author-block">
+                <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a><sup>*</sup>,</span>
+                        <span class="author-block">
+                  <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack"
+                     target="_blank">Manuel Brack</a><sup>*</sup>,</span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/" target="_blank">Björn Deiseroth</a>
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Kristian Kersting</a>
+                  </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">DFKI, hessian.AI, TU Darmstadt, LAION<br>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023</span>
+                        <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- Arxiv PDF link -->
+                            <span class="link-block">
+                        <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf"
+                           target="_blank"
+                           class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                            <!-- Supplementary PDF link -->
+                            <span class="link-block">
+                      <a href="https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_safe"
+                         target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-hf"></i>
+                      </span>
+                      <span>Diffusers</span>
+                    </a>
+                  </span>
+
+                            <!-- Github link -->
+                            <span class="link-block">
+                    <a href="https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion_safe"
+                       target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                            <!-- ArXiv abstract Link -->
+                            <span class="link-block">
+                  <a href="https://arxiv.org/abs/2211.05105" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                            <!-- ArXiv abstract Link -->
+                            <span class="link-block">
+                  <a href="https://huggingface.co/datasets/AIML-TUDA/i2p" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-hf"></i>
+                  </span>
+                  <span>I2P Dataset</span>
+                </a>
+              </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Text-conditioned image generation models have recently achieved astonishing results in image
+                        quality and text alignment and are consequently employed in a fast-growing number of
+                        applications. Since they are highly data-driven, relying on billion-sized datasets randomly
+                        scraped from the internet, they also suffer, as we demonstrate, from degenerated and biased
+                        human behavior. In turn, they may even reinforce such biases. To help combat these undesired
+                        side effects, we present safe latent diffusion (SLD). Specifically, to measure the inappropriate
+                        degeneration due to unfiltered and imbalanced training sets, we establish a novel image
+                        generation test bed-inappropriate image prompts (I2P)-containing dedicated, real-world
+                        image-to-text prompts covering concepts such as nudity and violence. As our exhaustive empirical
+                        evaluation demonstrates, the introduced SLD removes and suppresses inappropriate image parts
+                        during the diffusion process, with no additional training required and no adverse effect on
+                        overall image quality or text alignment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="/static/images/SLD_example_1.png" alt="MY ALT TEXT"/>
+                    <h2 class="subtitle has-text-centered">
+                        Mitigation of inappropriate content with Safe Latent Diffusion
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End image carousel -->
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <!-- Paper video. -->
+            <h2 class="title is-3">Implementation and Usage</h2>
+            <p>Safe Latent is fully integrated into the diffusers library. For more details check out the <a
+                    style="color:dodgerblue"
+                    href="https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_safe">documentation.</a>
+                A minimal usage example could look like this:
+            </p>
+            <pre><code class="python">from diffusers import DiffusionPipeline
+from diffusers.pipelines.stable_diffusion_safe import SafetyConfig
+device='cuda'
+pipe = DiffusionPipeline.from_pretrained(
+    "AIML-TUDA/stable-diffusion-safe",
+).to(device)
+prompt = "the four horsewomen of the apocalypse, painting by tom of finland, gaston bussiere, craig mullins, j. c. leyendecker"
+out = pipeline(prompt=prompt, **SafetyConfig.MAX)
+      </code></pre>
+            <p>A standalone implementation of the approach for use in further research can be found <a
+                    style="color: dodgerblue"
+                    href="https://github.com/ml-research/i2p/blob/main/mitigation/semantic_ssd.py">here.</a></p>
+            <p>We also introduce a new benchmark for evaluation inappropriate degeneration in text-to-image models
+                called <i>inappropriate image prompts</i>(I2P).
+                The dataset is available on <a style="color:dodgerblue" href="">huggingface</a> and may be loaded like
+                this:</p>
+            <pre><code class="python">from datasets import load_dataset
+data = load_dataset('AIML-TUDA/i2p', split='train')
+      </code></pre>
+        </div>
+    </div>
+</section>
+
+
+<!-- Youtube video -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <!-- Paper video. -->
+            <h2 class="title is-3">Video Presentation</h2>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+
+                    <div class="publication-video">
+                        <!-- Youtube embed code here -->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/drkpQJpmyI0"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End youtube video -->
+
+
+<!-- Video carousel -->
+
+<!-- Paper poster -->
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title">Poster</h2>
+
+            <iframe src="/static/pdfs/cvpr23_poster_sld.pdf" width="100%" height="550">
+            </iframe>
+
+        </div>
+    </div>
+</section>
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{schramowski2022safe,
+      title={Safe Latent Diffusion: Mitigating Inappropriate Degeneration in Diffusion Models},
+      author={Patrick Schramowski and Manuel Brack and Björn Deiseroth and Kristian Kersting},
+      year={2023},
+      booktitle={Proceedings of the {IEEE} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+
+                    <p>
+                        This page was built using the <a
+                            href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic
+                        Project Page Template</a>.
+                        You are free to borrow the of this website, we just ask that you link back to this page in the
+                        footer. <br> This website is licensed under a <a rel="license"
+                                                                         href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                                                         target="_blank">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
