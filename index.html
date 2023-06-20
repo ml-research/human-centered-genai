@@ -28,6 +28,7 @@
     <link rel="icon" type="image/x-icon" href="static/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
+    <link rel="stylesheet" href="static/css/bib-publication-list.css"/>
 
     <link rel="stylesheet" href="static/css/tiles.css">
     <link rel="stylesheet" href="static/css/team.css">
@@ -82,104 +83,151 @@
         <div class="container">
             <!-- Paper video. -->
             <h2 class="title is-3">Projects</h2>
-            <div class="row">
-                <div class="col tile" onclick="location.href='projects/safe-latent-diffusion';">
-                    <img src='static/images/thumbnails/sld_thumbnail.png'/>
-                    <div class="text">
-                        <h1>Mitigating Inappropriateness</h1>
-                        <h2 class="animate-text">Safe Latent Diffusion: Mitigating Inappropriate Degeneration in
-                            Diffusion Models</h2>
-                        <p class="animate-text">
-                            Safe Latent Diffusion suppresses inappropriate degeneration of generative image models.
-                            Additionally, we establish a novel image generation test bed-inappropriate
-                            image prompts (I2P)-containing dedicated, real-world image-to-text prompts covering concepts
-                            such as nudity and violence. </p>
-                        <div class="dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+            <div class="container has-text-centered">
+                <h3 class="title is-4">Methods</h3>
+                <div class="row">
+                    <div class="col tile" onclick="location.href='projects/semantic-guidance';">
+                        <img src='static/images/thumbnails/sega_thumbnail.png'/>
+                        <div class="text">
+                            <h1>Instructing text-to-image</h1>
+                            <h2 class="animate-text">SEGA: Instructing Diffusion using Semantic Dimensions</h2>
+                            <p class="animate-text">We present Semantic Guidance (SEGA) to enable fine-grained
+                                instruction
+                                of text-to-image models.
+                                (SEGA) allows for subtle and extensive edits, changes in composition and style, as well
+                                as
+                                optimizing the overall artistic conception. </p>
+
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col tile" onclick="location.href='projects/multifusion';">
+                        <img src='static/images/thumbnails/multifusion_thumbnail.png'/>
+                        <div class="text">
+                            <h1>Multi-Modal, Multi-Lingual Generation</h1>
+                            <h2 class="animate-text">MultiFusion: Fusing Pre-Trained Models for Multi-Lingual,
+                                Multi-Modal
+                                Image Generation</h2>
+                            <p class="animate-text">We propose MultiFusion that allows one to express complex and
+                                nuanced
+                                concepts with arbitrarily interleaved inputs of multiple modalities and languages.
+                                MutliFusion leverages pre-trained models and aligns them for integration into a cohesive
+                                system, thereby avoiding the need for extensive training from scratch. </p>
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-
-                <div class="col tile" onclick="location.href='projects/semantic-guidance';">
-                    <img src='static/images/thumbnails/sega_thumbnail.png'/>
-                    <div class="text">
-                        <h1>Instructing text-to-image</h1>
-                        <h2 class="animate-text">SEGA: Instructing Diffusion using Semantic Dimensions</h2>
-                        <p class="animate-text">We present Semantic Guidance (SEGA) to enable fine-grained instruction
-                            of text-to-image models.
-                            (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as
-                            optimizing the overall artistic conception. </p>
-
-                        <div class="dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col tile" onclick="location.href='projects/fair-diffusion';">
-                    <img src='static/images/thumbnails/fairdiff_thumbnail.png'/>
-                    <div class="text">
-                        <h1>Instructing on Fairness</h1>
-                        <h2 class="animate-text">Fair Diffusion: Instructing Text-to-Image Generation Models on
-                            Fairness</h2>
-                        <p class="animate-text">We investigate biases of text-to-image models across all components of
-                            the pipeline.
-                            We propose Fair Diffusion for shifting a bias, based on human instructions, in any direction
-                            yielding arbitrarily new proportions for, e.g., identity groups</p>
-                        <div class="dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <br>
-            <div class="row">
-                <div class="col tile" onclick="location.href='projects/t2i-eval';">
-                    <img src='static/images/thumbnails/benchmark_thumbnail.png'/>
-                    <div class="text">
-                        <h1>Large-scale Evaluation</h1>
-                        <h2 class="animate-text">Mitigating Inappropriateness in Image Generation: Can there be Value in
-                            Reflecting the World's Ugliness?</h2>
-                        <p class="animate-text">We demonstrate inappropriate degeneration on a large-scale for various
-                            generative text-to-image models, thus motivating the need for monitoring and moderating them
-                            at deployment.
-                            To this end, we evaluate mitigation strategies at inference to suppress the generation of
-                            inappropriate content. </p>
-                        <div class="dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+            <div class="container has-text-centered">
+                <h3 class="title is-4">Responsible AI</h3>
+                <div class="row">
+                    <div class="col tile" onclick="location.href='projects/safe-latent-diffusion';">
+                        <img src='static/images/thumbnails/sld_thumbnail.png'/>
+                        <div class="text">
+                            <h1>Mitigating Inappropriateness</h1>
+                            <h2 class="animate-text">Safe Latent Diffusion: Mitigating Inappropriate Degeneration in
+                                Diffusion Models</h2>
+                            <p class="animate-text">
+                                Safe Latent Diffusion suppresses inappropriate degeneration of generative image models.
+                                Additionally, we establish a novel image generation test bed-inappropriate
+                                image prompts (I2P)-containing dedicated, real-world image-to-text prompts covering
+                                concepts
+                                such as nudity and violence. </p>
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col tile" onclick="location.href='projects/multifusion';">
-                    <img src='static/images/thumbnails/multifusion_thumbnail.png'/>
-                    <div class="text">
-                        <h1>Multi-Modal, Multi-Lingual Generation</h1>
-                        <h2 class="animate-text">MultiFusion: Fusing Pre-Trained Models for Multi-Lingual, Multi-Modal
-                            Image Generation</h2>
-                        <p class="animate-text">We propose MultiFusion that allows one to express complex and nuanced
-                            concepts with arbitrarily interleaved inputs of multiple modalities and languages.
-                            MutliFusion leverages pre-trained models and aligns them for integration into a cohesive
-                            system, thereby avoiding the need for extensive training from scratch. </p>
-                        <div class="dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    <div class="col tile" onclick="location.href='projects/fair-diffusion';">
+                        <img src='static/images/thumbnails/fairdiff_thumbnail.png'/>
+                        <div class="text">
+                            <h1>Instructing on Fairness</h1>
+                            <h2 class="animate-text">Fair Diffusion: Instructing Text-to-Image Generation Models on
+                                Fairness</h2>
+                            <p class="animate-text">We investigate biases of text-to-image models across all components
+                                of
+                                the pipeline.
+                                We propose Fair Diffusion for shifting a bias, based on human instructions, in any
+                                direction
+                                yielding arbitrarily new proportions for, e.g., identity groups</p>
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
                     </div>
+                    <div class="col tile" onclick="location.href='projects/t2i-eval';">
+                        <img src='static/images/thumbnails/benchmark_thumbnail.png'/>
+                        <div class="text">
+                            <h1>Large-scale Evaluation</h1>
+                            <h2 class="animate-text">Mitigating Inappropriateness in Image Generation: Can there be
+                                Value in
+                                Reflecting the World's Ugliness?</h2>
+                            <p class="animate-text">We demonstrate inappropriate degeneration on a large-scale for
+                                various
+                                generative text-to-image models, thus motivating the need for monitoring and moderating
+                                them
+                                at deployment.
+                                To this end, we evaluate mitigation strategies at inference to suppress the generation
+                                of
+                                inappropriate content. </p>
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-
-
             </div>
+            <div class="container has-text-centered">
+                <h3 class="title is-4">Privacy &amp; Security</h3>
+                <div class="row">
+                    <div class="col tile" onclick="location.href='projects/clip';">
+                        <img src='static/images/thumbnails/clip_thumbnail.png'/>
+                        <div class="text">
+                            <h1>Privacy in CLIP</h1>
+                            <h2 class="animate-text">Does CLIP know my face?</h2>
+                            <p class="animate-text">
+                            </p>
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col tile" onclick="location.href='projects/backdoors';">
+                        <img src='static/images/thumbnails/clip_thumbnail.png'/>
+                        <div class="text">
+                            <h1>Privacy in CLIP</h1>
+                            <h2 class="animate-text">Does CLIP know my face?</h2>
+                            <p class="animate-text">
+                            </p>
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
 
         </div>
     </div>
@@ -250,8 +298,11 @@
                                 fairness and explainability in AI models integrating the human in the loop.
                             </p>
                             <ul class="social">
-                                <li><a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank"><i class="fa fa-user"></i></a></li>
-                                <li><a href="https://www.semanticscholar.org/author/Felix-Friedrich/2055616945?sort=influence" target="_blank"><i class="ai ai-semantic-scholar ai-2x"></i></a></li>
+                                <li><a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich"
+                                       target="_blank"><i class="fa fa-user"></i></a></li>
+                                <li>
+                                    <a href="https://www.semanticscholar.org/author/Felix-Friedrich/2055616945?sort=influence"
+                                       target="_blank"><i class="ai ai-semantic-scholar ai-2x"></i></a></li>
 
                             </ul>
                         </div>
@@ -270,14 +321,17 @@
                         <div class="team-image">
                             <img src="static/images/dhintersdorf.jpg" alt="Profile picture of Dominik Hintersdorf">
                             <p class="description">
-                                Dominik is a PhD candidate at TU Darmstadt. In his research, he investigates security 
+                                Dominik is a PhD candidate at TU Darmstadt. In his research, he investigates security
                                 and privacy issues of deep learning systems in the context of multi-modal models.
                             </p>
                             <ul class="social">
-                                <li><a href="https://ml-research.github.io/people/dhintersdorf"><i class="fa fa-user"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/dominikhintersdorf"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://ml-research.github.io/people/dhintersdorf"><i
+                                        class="fa fa-user"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/dominikhintersdorf"><i
+                                        class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="https://twitter.com/D0miH"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="https://scholar.google.com/citations?user=acFqFjYAAAAJ"><i class="ai ai-google-scholar"></i></a></li>
+                                <li><a href="https://scholar.google.com/citations?user=acFqFjYAAAAJ"><i
+                                        class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
@@ -319,13 +373,16 @@
                         <div class="team-image">
                             <img src="static/images/lstruppek.jpg" alt="Profile picture of Lukas Struppek">
                             <p class="description">
-                                Lukas is a PhD candidate at Darmstadt. In his research, he investigates security 
+                                Lukas is a PhD candidate at Darmstadt. In his research, he investigates security
                                 and privacy issues of deep learning systems in the context of generative models. </p>
                             <ul class="social">
-                                <li><a href="https://www.ml.informatik.tu-darmstadt.de/people/lstruppek/index.html"><i class="fa fa-user"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/lukas-struppek/"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://www.ml.informatik.tu-darmstadt.de/people/lstruppek/index.html"><i
+                                        class="fa fa-user"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/lukas-struppek/"><i
+                                        class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="https://twitter.com/LukasStruppek"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="https://scholar.google.com/citations?user=tU8K5qsAAAAJ"><i class="ai ai-google-scholar"></i></a></li>
+                                <li><a href="https://scholar.google.com/citations?user=tU8K5qsAAAAJ"><i
+                                        class="ai ai-google-scholar"></i></a></li>
                             </ul>
                         </div>
                         <div class="team-info">
@@ -345,7 +402,146 @@
     <div class="hero-body">
         <div class="container">
             <!-- Paper video. -->
-            <h2 class="title is-3">Related Publications</h2>
+            <h2 class="title is-3">Relevant Publications</h2>
+            <noscript>
+                <!-- bibtex source hidden by default, show it if JS disabled -->
+                <style>
+                    #bibtex {
+                        display: block;
+                    }
+                </style>
+            </noscript>
+            <table id="pubTable" class="display"></table>
+                <pre id="bibtex" style="display:none;">
+      @inproceedings{schramowski2022safe,
+      Anote = {./images/schramowski2022safe.png},
+      title={Safe Latent Diffusion: Mitigating Inappropriate Degeneration in Diffusion Models},
+      author={Patrick Schramowski and Manuel Brack and Björn Deiseroth and Kristian Kersting},
+      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      year = {2023},
+      month={Jun},
+      Note = {Text-conditioned image generation models have recently achieved astonishing results in image quality and text alignment and are consequently employed in a fast-growing number of applications. Since they are highly data-driven, relying on billion-sized datasets randomly scraped from the internet, they also suffer, as we demonstrate, from degenerated and biased human behavior. In turn, they may even reinforce such biases. To help combat these undesired side effects, we present safe latent diffusion (SLD). Specifically, to measure the inappropriate degeneration due to unfiltered and imbalanced training sets, we establish a novel image generation test bed-inappropriate image prompts (I2P)-containing dedicated, real-world image-to-text prompts covering concepts such as nudity and violence. As our exhaustive empirical evaluation demonstrates, the introduced SLD removes and suppresses inappropriate image parts during the diffusion process, with no additional training required and no adverse effect on overall image quality or text alignment.},
+      Pages = {},
+      Keywords = {Safety, Text-to-Image Synthesis, Text-Guided Image Generation, Stable Diffusion, Ethics},
+      Url={https://arxiv.org/abs/2211.05105}
+
+}
+      @misc{brack2022Stable,
+      Anote = {./images/sega_graphic.png},
+      title={The Stable Artist: Steering Semantics in Diffusion Latent Space},
+      author={Manuel Brack and Patrick Schramowski and Felix Friedrich and Dominik Hintersdorf and Kristian Kersting},
+      howpublished = {arXiv preprint arXiv:2212.06013},
+      year = {2022},
+      month={Dez},
+      Note = {Large, text-conditioned generative diffusion models have recently gained a lot of attention for their impressive performance in generating high-fidelity images from text alone. However, achieving high-quality results is almost unfeasible in a one-shot fashion. On the contrary, text-guided image generation involves the user making many slight changes to inputs in order to iteratively carve out the envisioned image. However, slight changes to the input prompt often lead to entirely different images being generated, and thus the control of the artist is limited in its granularity. To provide flexibility, we present the Stable Artist, an image editing approach enabling fine-grained control of the image generation process. The main component is semantic guidance (SEGA) which steers the diffusion process along variable numbers of semantic directions. This allows for subtle edits to images, changes in composition and style, as well as optimization of the overall artistic conception. Furthermore, SEGA enables probing of latent spaces to gain insights into the representation of concepts learned by the model, even complex ones such as 'carbon emission'. We demonstrate the Stable Artist on several tasks, showcasing high-quality image editing and composition.},
+      Pages = {},
+      Keywords = {Representations, Text-to-Image Synthesis, Text-Guided Image Generation, Stable Diffusion, Concepts, Semantics},
+      Url={https://arxiv.org/abs/2212.06013}
+}
+                    @misc{brack2023Sega,
+      Anote = {./images/sega_graphic.png},
+      title={SEGA: Instructing Diffusion using Semantic Dimensions},
+      author={Manuel Brack and Felix Friedrich and Dominik Hintersdorf and Lukas Struppek and Patrick Schramowski and Kristian Kersting},
+      howpublished = {arXiv preprint arXiv:2211.05105},
+      year = {2023},
+      month={Jan},
+      Note = {Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.},
+      Pages = {},
+      Keywords = {Representations, Text-to-Image Synthesis, Text-Guided Image Generation, Stable Diffusion, Concepts, Semantics},
+      Url={https://arxiv.org/abs/2211.05105}
+}
+                    @misc{friedrich2023fair,
+      Anote = {./images/ffriedrich_fair_2023.png},
+      title={Fair Diffusion: Instructing Text-to-Image Generation Models on Fairness},
+      author={Felix Friedrich and Manuel Brack and Dominik Hintersdorf and Lukas Struppek and Patrick Schramowski and Sasha Luccioni and Kristian Kersting},
+      howpublished = {arXiv preprint arXiv:2302.10893},
+      year = {2023},
+      month={Feb},
+      Note = {Generative AI models have recently achieved astonishing results in quality and are consequently employed in a fast-growing number of applications. However, since they are highly data-driven, relying on billion-sized datasets randomly scraped from the internet, they also suffer from degenerated and biased human behavior, as we demonstrate. In fact, they may even reinforce such biases. To not only uncover but also combat these undesired effects, we present a novel strategy, called Fair Diffusion, to attenuate biases after the deployment of generative text-to-image models. Specifically, we demonstrate shifting a bias, based on human instructions, in any direction yielding arbitrarily new proportions for, e.g., identity groups. As our empirical evaluation demonstrates, this introduced control enables instructing generative image models on fairness, with no data filtering and additional training required.},
+      Pages = {},
+      Keywords = {Fairness, Text-to-Image Synthesis, Text-Guided Image Generation, Stable Diffusion, AI Ethics},
+      Url={https://arxiv.org/abs/2302.10893}
+}
+                    @misc{struppek23caia,
+  Anote={./images/caia.jpeg},
+  author = {Lukas Struppek and Dominik Hintersdorf and Felix Friedrich and Manuel Brack and Patrick Schramowski and Kristian Kersting},
+  title = {Image Classifiers Leak Sensitive Attributes About Their Classes},
+  howpublished = {arXiv preprint arXiv:2303.09289},
+  year = {2023},
+  Url = {https://arxiv.org/pdf/2303.09289},
+  Pages = {},
+  Note = {Neural network-based image classifiers are powerful tools for computer vision tasks, but they inadvertently reveal sensitive
+  attribute information about their classes, raising concerns about their privacy. To investigate this privacy leakage, we introduce the first
+  Class Attribute Inference Attack (Caia), which leverages recent advances in text-to-image synthesis to infer sensitive attributes of individual
+  classes in a black-box setting, while remaining competitive with related white-box attacks. Our extensive experiments in the face recognition
+  domain show that Caia can accurately infer undisclosed sensitive attributes, such as an individual's hair color, gender and racial appearance,
+  which are not part of the training labels. Interestingly, we demonstrate that adversarial robust models are even more vulnerable to such privacy
+  leakage than standard models, indicating that a trade-off between robustness and privacy exists.},
+  Keywords = {Privacy, Text-to-Image Synthesis, Text-Guided Image Generation, Stable Diffusion},
+}
+
+@misc{brack2023mitigating,
+  Anote={./images/brack2023mitigating.png},
+  author = {Manuel Brack and Felix Friedrich and Patrick Schramowski and Kristian Kersting},
+  title = {Mitigating Inappropriateness in Image Generation: Can there be Value in Reflecting the World's Ugliness?},
+  howpublished = {arXiv preprint arXiv:2305.18398},
+  year = {2023},
+  Url = {https://arxiv.org/pdf/2305.18398},
+  Pages = {},
+  Note = {Text-conditioned image generation models have recently achieved astonishing results in image quality and text alignment and are consequently employed in a fast-growing number of applications. Since they are highly data-driven, relying on billion-sized datasets randomly scraped from the web, they also reproduce inappropriate human behavior. Specifically, we demonstrate inappropriate degeneration on a large-scale for various generative text-to-image models, thus motivating the need for monitoring and moderating them at deployment. To this end, we evaluate mitigation strategies at inference to suppress the generation of inappropriate content. Our findings show that we can use models' representations of the world's ugliness to align them with human preferences.},
+  Keywords = {Image Synthesis, Image Generation, Diffusion, AI Ethics, Inappropriatness, Evaluation, Mitigation},
+}
+
+@misc{bellagente2023multifusion,
+  Anote={./images/bellagente2023multifusion.png},
+  author = {Marco Bellagente and Manuel Brack and Hannah Teufel and Felix Friedrich and Björn Deiseroth and Constantin Eichenberg and Andrew Dai and Robert Baldock and Souradeep Nanda and Koen Oostermeijer and Andres Felipe Cruz-Salinas and Patrick Schramowski and Kristian Kersting and Samuel Weinbach},
+  title = {MultiFusion: Fusing Pre-Trained Models for Multi-Lingual, Multi-Modal Image Generation},
+  howpublished = {arXiv preprint arXiv:2305.15296},
+  year = {2023},
+  Url = {https://arxiv.org/pdf/2305.15296},
+  Pages = {},
+  Note = {The recent popularity of text-to-image diffusion models (DM) can largely be attributed to the intuitive interface they provide to users. The intended generation can be expressed in natural language, with the model producing faithful interpretations of text prompts. However, expressing complex or nuanced ideas in text alone can be difficult. To ease image generation, we propose MultiFusion that allows one to express complex and nuanced concepts with arbitrarily interleaved inputs of multiple modalities and languages. MutliFusion leverages pre-trained models and aligns them for integration into a cohesive system, thereby avoiding the need for extensive training from scratch. Our experimental results demonstrate the efficient transfer of capabilities from individual modules to the downstream model. Specifically, the fusion of all independent components allows the image generation module to utilize multilingual, interleaved multimodal inputs despite being trained solely on monomodal data in a single language.},
+  Keywords = {Image Synthesis, Image Generation, Diffusion, Multimodality, Multilingualism},
+}
+                    @misc{struppek22rickrolling,
+  Anote = {./images/struppek_rickrolling.jpg},
+  author = {Lukas Struppek and Dominik Hintersdorf and Kristian Kersting},
+  title = {Rickrolling the Artist: Injecting Invisible Backdoors into Text-Guided Image Generation Models},
+  howpublished = {arXiv preprint arXiv:2211.02408},
+  year = {2022},
+  month={Nov},
+  Note = {While text-to-image synthesis currently enjoys great popularity among researchers and the general public, the security of these models has been neglected so far. Many text-guided image generation models rely on pre-trained text encoders from external sources, and their users trust that the retrieved models will behave as promised. Unfortunately, this might not be the case. We introduce backdoor attacks against text-guided generative models and demonstrate that their text encoders pose a major tampering risk. Our attacks only slightly alter an encoder so that no suspicious model behavior is apparent for image generations with clean prompts. By then inserting a single non-Latin character into the prompt, the adversary can trigger the model to either generate images with pre-defined attributes or images following a hidden, potentially malicious description. We empirically demonstrate the high effectiveness of our attacks on Stable Diffusion and highlight that the injection process of a single backdoor takes less than two minutes. Besides phrasing our approach solely as an attack, it can also force an encoder to forget phrases related to certain concepts, such as nudity or violence, and help to make image generation safer.},
+  Pages = {},
+  Keywords = {Backdoor Attacks, Text-to-Image Synthesis, Text-Guided Image Generation, Stable Diffusion},
+  Url={https://arxiv.org/pdf/2211.02408.pdf}
+  }
+
+@misc{struppek22homoglyphs,
+  Anote = {./images/struppek_biased_artist.jpg},
+  author = {Lukas Struppek and Dominik Hintersdorf and Felix Friedrich and Manuel Brack and Patrick Schramowski and Kristian Kersting},
+  title = {Exploiting Cultural Biases via Homoglyphs in Text-to-Image Synthesis},
+  Howpublished = {arXiv preprint arXiv:2209.08891},
+  year = {2022},
+  month={Sep},
+  Note = {Models for text-to-image synthesis, such as DALL-E 2 and Stable Diffusion, have recently drawn a lot of interest from academia and the general public. These models are capable of producing high-quality images that depict a variety of concepts and styles when conditioned on textual descriptions. However, these models adopt cultural characteristics associated with specific Unicode scripts from their vast amount of training data, which may not be immediately apparent. We show that by simply inserting single non-Latin characters in a textual description, common models reflect cultural stereotypes and biases in their generated images. We analyze this behavior both qualitatively and quantitatively, and identify a model’s text encoder as the root cause of the phenomenon. Additionally, malicious users or service providers may try to intentionally bias the image generation to create racist stereotypes by replacing Latin characters with similarly-looking characters from non-Latin scripts, so-called homoglyphs. To mitigate such unnoticed script attacks, we propose a novel homoglyph unlearning method to fine-tune a text encoder, making it robust against homoglyph manipulations.},
+  Pages = {},
+  Keywords = {Text-to-Image Synthesis, Text-Guided Image Generation, DALL-E 2, Stable Diffusion, Computer Vision},
+  Url={https://arxiv.org/pdf/2209.08891.pdf}
+  }
+
+@misc{hintersdorf2022clipping_privacy,
+      Anote = {./images/hintersdorf2022clipping_privacy.png},
+      title={Does CLIP Know My Face?},
+      author={Dominik Hintersdorf and Lukas Struppek and Manuel Brack and Felix Friedrich and Patrick Schramowski and Kristian Kersting},
+      year={2022},
+      month={Sep},
+      Howpublished = {arXiv preprint arXiv:2209.07341},
+      Note = {With the rise of deep learning in various applications, privacy concerns around the protection of training data has become a critical area of research. Whereas prior studies have focused on privacy risks in single-modal models, we introduce a novel method to assess privacy for multi-modal models, specifically vision-language models like CLIP. The proposed Identity Inference Attack (IDIA) reveals whether an individual was included in the training data by querying the model with images of the same person. Letting the model choose from a wide variety of possible text labels, the model reveals whether it recognizes the person and, therefore, was used for training. Our large-scale experiments on CLIP demonstrate that individuals used for training can be identified with very high accuracy. We confirm that the model has learned to associate names with depicted individuals, implying the existence of sensitive information that can be extracted by adversaries. Our results highlight the need for stronger privacy protection in large-scale models and suggest that IDIAs can be used to prove the unauthorized use of data for training and to enforce privacy laws.},
+      Pages = {},
+      Keywords = {Identity Inference Attacks, Privacy, Computer Vision, Pre-trained models, CLIP, Deep Learning},
+      Url={https://arxiv.org/pdf/2209.07341.pdf}
+}
+                </pre>
         </div>
     </div>
 </section>
@@ -379,5 +575,12 @@
 
 <!-- End of Statcounter Code -->
 
+<script type="text/javascript" src="static/js/bib-list.js"></script>
+<script type="text/javascript" src="static/js/bib-publication-list.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        bibtexify("#bibtex", "pubTable", {'tweet': 'vkaravir'});
+    });
+</script>
 </body>
 </html>
