@@ -90,7 +90,7 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
 .dots
 {
   position:absolute;
-  bottom:20px;
+  bottom:-30px;
   right:30px;
   margin: 0 auto;
   width:30px;
