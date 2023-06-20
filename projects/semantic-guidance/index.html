@@ -1,80 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="/static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.">
+    <meta property="og:title" content="Semantic Guidance - Project Page"/>
+    <meta property="og:description" content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility."/>
+    <meta property="og:url" content="URL OF THE WEBSITE"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="/diffusion-webpage/static/image/your_banner_image.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="/static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:title" content="Semantic Guidance - Project Page">
+    <meta name="twitter:description" content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="/diffusion-webpage/static/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords"
+          content="semantic guidance, image generation, text-to-image, stable diffusion, imagen, dall-e">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="/static/images/favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+    <title>Semantic Guidance</title>
+    <link rel="icon" type="image/x-icon" href="/diffusion-webpage/static/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
 
-  <link rel="stylesheet" href="/static/css/bulma.min.css">
-  <link rel="stylesheet" href="/static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="/static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="/static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/diffusion-webpage/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/diffusion-webpage/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/diffusion-webpage/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="/diffusion-webpage/static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="/diffusion-webpage/static/css/index.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="/static/js/fontawesome.all.min.js"></script>
-  <script src="/static/js/bulma-carousel.min.js"></script>
-  <script src="/static/js/bulma-slider.min.js"></script>
-  <script src="/static/js/index.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="/diffusion-webpage/static/js/fontawesome.all.min.js"></script>
+    <script src="/diffusion-webpage/static/js/bulma-carousel.min.js"></script>
+    <script src="/diffusion-webpage/static/js/bulma-slider.min.js"></script>
+    <script src="/diffusion-webpage/static/js/index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
-
-
-  <section class="hero">
+<div style="margin: 10px">
+    <a href="/diffusion-webpage/index.html"
+       class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa fa-home"></i>
+                        </span>
+        <span>Home</span>
+    </a>
+</div>
+<section class="hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">SEGA:<br>Instructing Diffusion using Semantic Dimensions
+                    </h1>
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                        <span class="author-block">
+                  <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack"
+                     target="_blank">Manuel Brack</a>,
+                        </span>
+                        <span class="author-block">
+                <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a>,
+                        </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Felix Friedrich</a>,
                   </span>
-                  </div>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/dhintersdorf" target="_blank">Domink Hintersdorf</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/lstruppek" target="_blank">Lukas Struppek</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Kristian Kersting</a>
+                  </span>
+                    </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">DFKI, hessian.AI, TU Darmstadt, LAION<br>Preprint under Review</span>
+                    </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- Arxiv PDF link -->
+                            <span class="link-block">
+                        <a href="https://arxiv.org/2301.12247.pdf"
+                           target="_blank"
+                           class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
                         </span>
@@ -82,21 +108,23 @@
                       </a>
                     </span>
 
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="/static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                            <!-- Supplementary PDF link -->
+                            <span class="link-block">
+                      <a href="https://huggingface.co/docs/diffusers/api/pipelines/semantic_stable_diffusion"
+                         target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="ai ai-hf"></i>
                       </span>
-                      <span>Supplementary</span>
+                      <span>Diffusers</span>
                     </a>
                   </span>
 
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
+                            <!-- Github link -->
+                            <span class="link-block">
+                    <a href="https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/semantic_stable_diffusion"
+                       target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -104,209 +132,226 @@
                   </a>
                 </span>
 
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
+                            <!-- ArXiv abstract Link -->
+                            <span class="link-block">
+                  <a href="https://arxiv.org/abs/2301.12247" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="/static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Text-to-image diffusion models have recently received a lot of interest for their astonishing
+                        ability to produce high-fidelity images from text only. However, achieving one-shot generation
+                        that aligns with the user's intent is nearly impossible, yet small changes to the input prompt
+                        often result in very different images. This leaves the user with little semantic control. To put
+                        the user in control, we show how to interact with the diffusion process to flexibly steer it
+                        along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits,
+                        changes in composition and style, as well as optimizing the overall artistic conception. We
+                        demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility
+                        and flexibility.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 <!-- End paper abstract -->
 
 
 <!-- Image carousel -->
 <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="/static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="/static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="/static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="/static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item">
+                        <!-- Your image here -->
+                        <img src="/diffusion-webpage/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
+                        <h2 class="subtitle has-text-centered">
+                            SEGA allows for flexible manipulation of image generation using textual instructions.
+                        </h2>
+                    </div>
+                    <div class="item">
+                        <!-- Your image here -->
+                        <img src="/diffusion-webpage/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
+                        <h2 class="subtitle has-text-centered">
+                            Multiple concepts can be combined arbitrarily to achieve complex changes.
+                        </h2>
+                    </div>
+                    <div class="item">
+                        <!-- Your image here -->
+                        <img src="/diffusion-webpage/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
+                        <h2 class="subtitle has-text-centered">
+                            SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                            guidance.
+                        </h2>
+                    </div>
+                    <div class="item">
+                        <!-- Your image here -->
+                        <img src="/diffusion-webpage/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
+                        <h2 class="subtitle has-text-centered">
+                            SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                            guidance.
+                        </h2>
+                    </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-</div>
 </section>
 <!-- End image carousel -->
 
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <!-- Paper video. -->
+            <h2 class="title is-3">Implementation and Usage</h2>
+            <p>Semantic Guidance if fully integrated into the diffusers library. For more details check out the <a
+                    style="color:dodgerblue"
+                    href="https://huggingface.co/docs/diffusers/api/pipelines/semantic_stable_diffusion">documentation.</a>
+                An exemplary use case could look like this:
+            </p>
+            <pre><code class="python">import torch
+from diffusers import SemanticStableDiffusionPipeline
 
+pipe = SemanticStableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16)
+pipe = pipe.to("cuda")
+
+out = pipe(
+    prompt="a photo of the face of a woman",
+    num_images_per_prompt=1,
+    guidance_scale=7,
+    editing_prompt=[
+        "smiling, smile",  # Concepts to apply
+        "glasses, wearing glasses",
+        "curls, wavy hair, curly hair",
+        "beard, full beard, mustache",
+    ],
+    reverse_editing_direction=[False, False, False, False],  # Direction of guidance i.e. increase all concepts
+    edit_warmup_steps=[10, 10, 10, 10],  # Warmup period for each concept
+    edit_guidance_scale=[4, 5, 5, 5.4],  # Guidance scale for each concept
+    edit_threshold=[
+        0.99,
+        0.975,
+        0.925,
+        0.96,
+    ],  # Threshold for each concept. Threshold equals the percentile of the latent space that will be discarded. I.e. threshold=0.99 uses 1% of the latent dimensions
+    edit_momentum_scale=0.3,  # Momentum scale that will be added to the latent guidance
+    edit_mom_beta=0.6,  # Momentum beta
+    edit_weights=[1, 1, 1, 1, 1],  # Weights of the individual concepts against each other
+)
+      </code></pre>
+            <p>A standalone implementation of the approach for use in further research can be found <a
+                    style="color: dodgerblue"
+                    href="https://github.com/ml-research/semantic-image-editing">here.</a></p>
+        </div>
+    </div>
+</section>
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+<!--
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            &lt;!&ndash; Paper video. &ndash;&gt;
+            <h2 class="title is-3">Video Presentation</h2>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+
+                    <div class="publication-video">
+                        &lt;!&ndash; Youtube embed code here &ndash;&gt;
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/drkpQJpmyI0"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
+-->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="/static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="/static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="/static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
+<!--<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title">Poster</h2>
 
-      <iframe  src="/static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
+            <iframe src="/diffusion-webpage/static/pdfs/cvpr23_poster_sld.pdf" width="100%" height="550">
+            </iframe>
+
+        </div>
     </div>
-  </section>
+</section>-->
 <!--End paper poster -->
 
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+<section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{brack2023Sega,
+      title={SEGA: Instructing Diffusion using Semantic Dimensions},
+      author={Manuel Brack and Felix Friedrich and Dominik Hintersdorf and Lukas Struppek and Patrick Schramowski and Kristian Kersting},
+      year={2023},
+      journal={arXiv preprint arXiv:2301.12247}
+}</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
 
 
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
 
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
-            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
+                    <p>
+                        This page was built using the <a
+                            href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic
+                        Project Page Template</a>.
+                        You are free to borrow the of this website, we just ask that you link back to this page in the
+                        footer. <br> This website is licensed under a <a rel="license"
+                                                                         href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                                                         target="_blank">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
 
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </footer>
 
 <!-- Statcounter tracking code -->
-  
+
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
-    <!-- End of Statcounter Code -->
+<!-- End of Statcounter Code -->
 
-  </body>
-  </html>
+</body>
+</html>
