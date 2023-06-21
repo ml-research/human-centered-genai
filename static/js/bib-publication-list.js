@@ -278,22 +278,22 @@ var bibtexify = (function ($) {
         links: function (entryData) {
             var itemStr = '';
             if (entryData.url && entryData.url.match(/.*\.pdf/)) {
-                itemStr += ' <a title="PDF-version of this article"  target="_blank" href="' +
-                    entryData.url + '"><i class="fas fa-file-pdf"></i><\/a>';
+                itemStr += '<div style="display: inline-block; margin:0 5px;"><a title="PDF-version of this article"  target="_blank" href="' +
+                    entryData.url + '"><i class="fas fa-file-pdf"></i><\/a></div>';
             } else if (entryData.url && entryData.url.match(/.*arxiv.*/)) {
-                itemStr += ' <a title="This article on arXiv" target="_blank" href="' + entryData.url +
-                    '"><i class="ai ai-arxiv"></i><\/a>';
+                itemStr += '<div style="display: inline-block; margin:0 5px;"><a title="This article on arXiv" target="_blank" href="' + entryData.url +
+                    '"><i class="ai ai-arxiv"></i><\/a></div>';
             } else if (entryData.url && entryData.url.match(/.*arxiv.*/)) {
-                itemStr += ' <a title="This article online" target="_blank" href="' + entryData.url +
-                    '"><i class="fab fa-newspaper"></i><\/a>';
+                itemStr += '<div style="display: inline-block; margin:0 5px;"><a title="This article online" target="_blank" href="' + entryData.url +
+                    '"><i class="fab fa-newspaper"></i><\/a></div>';
             }
             return itemStr;
         },
         // adds the bibtex link and the opening div with bibtex content
         bibtex: function (entryData) {
             var itemStr = '';
-            itemStr += ' <a title="This article as BibTeX" href="#" class="biblink">' +
-                '<i class="fab fa-books"></i></a><div class="bibinfo hidden">';
+            itemStr += '<div style="display: inline-block; margin:0 5px;"><a title="This article as BibTeX" href="#" class="biblink">' +
+                '<i class="fa-solid fa-book"></i></a><div class="bibinfo hidden">';
             itemStr += '<a href="#" class="bibclose" title="Close">x</a><pre>';
             itemStr += '@' + entryData.entryType + "{" + entryData.cite + ",\n";
             $.each(entryData, function (key, value) {
@@ -310,13 +310,13 @@ var bibtexify = (function ($) {
                     itemStr += '  ' + key + " = { " + value + " },\n";
                 }
             });
-            itemStr += "}</pre></div>";
+            itemStr += "}</pre></div></div>";
             return itemStr;
         },
         // generates the twitter link for the entry
         tweet: function (entryData, bib) {
             // url, via, text
-            var itemStr = ' <a title="Tweet this article" href="http://twitter.com/share?url=';
+            var itemStr = '<div style="display: inline-block; margin:0 5px;"><a title="Tweet this article" href="http://twitter.com/share?url=';
             itemStr += entryData.url;
             itemStr += '&via=' + bib.options.tweet;
             itemStr += '&text=';
@@ -335,7 +335,7 @@ var bibtexify = (function ($) {
                 itemStr += uriencode(splitName(auth[0].last) + " et al");
             }
             itemStr += ": " + uriencode(entryData.title);
-            itemStr += '" target="_blank"><i class="fab fa-twitter"></i></a>';
+            itemStr += '" target="_blank"><i class="fab fa-twitter"></i></a></div>';
             return itemStr;
         },
         // helper functions for formatting different types of bibtex entries
