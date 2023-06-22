@@ -251,7 +251,14 @@ var bibtexify = (function ($) {
                 type = 'misc';
                 entryData.entryType = type;
             }
-            var itemStr = htmlify(bib2html[type](entryData));
+            var itemStr = ""
+            if (entryData.highlight == 1) {
+                itemStr += "<b>"
+            }
+            itemStr +=  htmlify(bib2html[type](entryData));
+            if (entryData.highlight == 1) {
+                itemStr += "</b>"
+            }
 
             return itemStr.replace(/undefined[,.]?/g,
                 '<span class="undefined">missing<\/span>');
@@ -475,8 +482,10 @@ var bibtexify = (function ($) {
             }
             try {
                 var html = bib2html.entry2html(item, this);
-                var social = bib2social.entry2html(item, this)
-                bibentries.push([item.year, bib2html.labels[item.entryType], html, social]);
+                var social = bib2social.entry2html(item, this);
+                console.log(item.title)
+                console.log(item.highlight);
+                bibentries.push([item.highlight, item.year, bib2html.labels[item.entryType], html, social]);
                 entryTypes[bib2html.labels[item.entryType]] = item.entryType;
                 this.updateStats(item);
             } catch (e) {
@@ -496,7 +505,8 @@ var bibtexify = (function ($) {
         var table = this.$pubTable.dataTable($.extend({
             'aaData': bibentries,
             'aaSorting': this.options.sorting,
-            'aoColumns': [{"sTitle": "Year"},
+            'aoColumns': [{"sTitle": "Highlight"},
+                {"sTitle": "Year"},
                 {"sTitle": "Type", "sType": "type-sort", "asSorting": ["desc", "asc"]},
                 {"sTitle": "Publication", "bSortable": false}, {"sTitle": " ", "bSortable": false}],
             'bPaginate': false
