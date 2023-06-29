@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
     <!-- Replace the content tag with appropriate information -->
-    <meta name="description" content="Safe Latent Diffusion - Project Page">
-    <meta property="og:title" content="Safe Latent Diffusion - Project Page"/>
-    <meta property="og:description" content=""/>
+    <meta name="description" content="The recent popularity of text-to-image diffusion models (DM) can largely be attributed to the intuitive interface they provide to users. The intended generation can be expressed in natural language, with the model producing faithful interpretations of text prompts. However, expressing complex or nuanced ideas in text alone can be difficult. To ease image generation, we propose MultiFusion that allows one to express complex and nuanced concepts with arbitrarily interleaved inputs of multiple modalities and languages. MutliFusion leverages pre-trained models and aligns them for integration into a cohesive system, thereby avoiding the need for extensive training from scratch. Our experimental results demonstrate the efficient transfer of capabilities from individual modules to the downstream model. Specifically, the fusion of all independent components allows the image generation module to utilize multilingual, interleaved multimodal inputs despite being trained solely on monomodal data in a single language.">
+    <meta property="og:title" content="MultiFusion - Project Page"/>
+    <meta property="og:description" content="The recent popularity of text-to-image diffusion models (DM) can largely be attributed to the intuitive interface they provide to users. The intended generation can be expressed in natural language, with the model producing faithful interpretations of text prompts. However, expressing complex or nuanced ideas in text alone can be difficult. To ease image generation, we propose MultiFusion that allows one to express complex and nuanced concepts with arbitrarily interleaved inputs of multiple modalities and languages. MutliFusion leverages pre-trained models and aligns them for integration into a cohesive system, thereby avoiding the need for extensive training from scratch. Our experimental results demonstrate the efficient transfer of capabilities from individual modules to the downstream model. Specifically, the fusion of all independent components allows the image generation module to utilize multilingual, interleaved multimodal inputs despite being trained solely on monomodal data in a single language."/>
     <meta property="og:url" content="URL OF THE WEBSITE"/>
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
     <meta property="og:image" content="/diffusion-webpage/static/image/your_banner_image.png"/>
@@ -14,18 +14,18 @@
     <meta property="og:image:height" content="630"/>
 
 
-    <meta name="twitter:title" content="Safe Latent Diffusion - Project Page">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="MultiFusion - Project Page">
+    <meta name="twitter:description" content="The recent popularity of text-to-image diffusion models (DM) can largely be attributed to the intuitive interface they provide to users. The intended generation can be expressed in natural language, with the model producing faithful interpretations of text prompts. However, expressing complex or nuanced ideas in text alone can be difficult. To ease image generation, we propose MultiFusion that allows one to express complex and nuanced concepts with arbitrarily interleaved inputs of multiple modalities and languages. MutliFusion leverages pre-trained models and aligns them for integration into a cohesive system, thereby avoiding the need for extensive training from scratch. Our experimental results demonstrate the efficient transfer of capabilities from individual modules to the downstream model. Specifically, the fusion of all independent components allows the image generation module to utilize multilingual, interleaved multimodal inputs despite being trained solely on monomodal data in a single language.">
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
     <meta name="twitter:image" content="/diffusion-webpage/static/images/your_twitter_banner_image.png">
     <meta name="twitter:card" content="summary_large_image">
     <!-- Keywords for your paper to be indexed by-->
     <meta name="keywords"
-          content="safe latent diffusion, image generation, text-to-image, stable diffusion, imagen, dall-e">
+          content="semantic guidance, image generation, text-to-image, stable diffusion, imagen, dall-e">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Safe Latent Diffusion</title>
+    <title>MultiFusion</title>
     <link rel="icon" type="image/x-icon" href="/diffusion-webpage/static/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
@@ -53,7 +53,6 @@
 <body>
 <div style="margin: 10px">
     <a href="/diffusion-webpage/index.html"
-       target="_blank"
        class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fa fa-home"></i>
@@ -66,33 +65,69 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">Safe Latent Diffusion <br>Mitigating Inappropriate
-                        Degeneration in Diffusion Models</h1>
+                    <h1 class="title is-1 publication-title">MultiFusion: <br>Fusing Pre-Trained Models for Multi-Lingual, Multi-Modal Image Generation
+                    </h1>
                     <div class="is-size-5 publication-authors">
                         <!-- Paper authors -->
                         <span class="author-block">
-                <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a><sup>*</sup>,</span>
+                  <a href="#"
+                     target="_blank">Marco Bellagente<sup>*</sup></a>,
+                        </span>
                         <span class="author-block">
                   <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack"
-                     target="_blank">Manuel Brack</a><sup>*</sup>,</span>
+                     target="_blank">Manuel Brack<sup>*</sup></a>,
+                        </span>
                         <span class="author-block">
-                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/" target="_blank">Björn Deiseroth</a>
+                  <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack"
+                     target="_blank">Hannah Teufel<sup>*</sup></a>,
+                        </span>
+
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Felix Friedrich</a>,
                   </span>
                         <span class="author-block">
-                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Kristian Kersting</a>
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Björn Deiseroth</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Constantin Eichenberg</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Andrew Dai</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Robert Baldock</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">ouradeep Nanda</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Koen Oostermeijer</a>,
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Andres Felipe Cruz-Salinas</a>,
+                  </span>
+                        <span class="author-block">
+                <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a>,
+                        </span>
+
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Kristian Kersting,</a>
+                  </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Samuel Weinbach</a>
                   </span>
                     </div>
 
                     <div class="is-size-5 publication-authors">
-                        <span class="author-block">DFKI, hessian.AI, TU Darmstadt, LAION<br>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023</span>
-                        <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                        <span class="author-block">DFKI, Aleph Alpha, hessian.AI, TU Darmstadt, LAION<br>Preprint under Review</span>
+                         <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                     </div>
 
                     <div class="column has-text-centered">
                         <div class="publication-links">
                             <!-- Arxiv PDF link -->
                             <span class="link-block">
-                        <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf"
+                        <a href="https://arxiv.org/2305.15296.pdf"
                            target="_blank"
                            class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
@@ -102,48 +137,15 @@
                       </a>
                     </span>
 
-                            <!-- Supplementary PDF link -->
-                            <span class="link-block">
-                      <a href="https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_safe"
-                         target="_blank"
-                         class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="ai ai-hf"></i>
-                      </span>
-                      <span>Diffusers</span>
-                    </a>
-                  </span>
-
-                            <!-- Github link -->
-                            <span class="link-block">
-                    <a href="https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion_safe"
-                       target="_blank"
-                       class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
 
                             <!-- ArXiv abstract Link -->
                             <span class="link-block">
-                  <a href="https://arxiv.org/abs/2211.05105" target="_blank"
+                  <a href="https://arxiv.org/abs/2305.15296" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
-                </a>
-              </span>
-                            <!-- ArXiv abstract Link -->
-                            <span class="link-block">
-                  <a href="https://huggingface.co/datasets/AIML-TUDA/i2p" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-hf"></i>
-                  </span>
-                  <span>I2P Dataset</span>
                 </a>
               </span>
                         </div>
@@ -163,18 +165,7 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
-                        Text-conditioned image generation models have recently achieved astonishing results in image
-                        quality and text alignment and are consequently employed in a fast-growing number of
-                        applications. Since they are highly data-driven, relying on billion-sized datasets randomly
-                        scraped from the internet, they also suffer, as we demonstrate, from degenerated and biased
-                        human behavior. In turn, they may even reinforce such biases. To help combat these undesired
-                        side effects, we present safe latent diffusion (SLD). Specifically, to measure the inappropriate
-                        degeneration due to unfiltered and imbalanced training sets, we establish a novel image
-                        generation test bed-inappropriate image prompts (I2P)-containing dedicated, real-world
-                        image-to-text prompts covering concepts such as nudity and violence. As our exhaustive empirical
-                        evaluation demonstrates, the introduced SLD removes and suppresses inappropriate image parts
-                        during the diffusion process, with no additional training required and no adverse effect on
-                        overall image quality or text alignment.
+                        The recent popularity of text-to-image diffusion models (DM) can largely be attributed to the intuitive interface they provide to users. The intended generation can be expressed in natural language, with the model producing faithful interpretations of text prompts. However, expressing complex or nuanced ideas in text alone can be difficult. To ease image generation, we propose MultiFusion that allows one to express complex and nuanced concepts with arbitrarily interleaved inputs of multiple modalities and languages. MutliFusion leverages pre-trained models and aligns them for integration into a cohesive system, thereby avoiding the need for extensive training from scratch. Our experimental results demonstrate the efficient transfer of capabilities from individual modules to the downstream model. Specifically, the fusion of all independent components allows the image generation module to utilize multilingual, interleaved multimodal inputs despite being trained solely on monomodal data in a single language.
                     </p>
                 </div>
             </div>
@@ -188,65 +179,35 @@
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <div id="">
-                <div class="item">
-                    <!-- Your image here -->
-                    <img src="/diffusion-webpage/static/images/SLD_example_1.png" alt="MY ALT TEXT"/>
-                    <h2 class="subtitle has-text-centered">
-                        Mitigation of inappropriate content with Safe Latent Diffusion
-                    </h2>
-                </div>
+            <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item">
+                        <!-- Your image here -->
+                        <img src="" alt="MY ALT TEXT"/>
+                        <h2 class="subtitle has-text-centered">
+
+                        </h2>
+                    </div>
+
             </div>
         </div>
     </div>
 </section>
 <!-- End image carousel -->
 
-<section class="hero is-small is-light">
-    <div class="hero-body">
-        <div class="container">
-            <!-- Paper video. -->
-            <h2 class="title is-3">Implementation and Usage</h2>
-            <p>Safe Latent is fully integrated into the diffusers library. For more details check out the <a
-                    style="color:dodgerblue"
-                    href="https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_safe">documentation.</a>
-                A minimal usage example could look like this:
-            </p>
-            <pre><code class="python">from diffusers import DiffusionPipeline
-from diffusers.pipelines.stable_diffusion_safe import SafetyConfig
-device='cuda'
-pipe = DiffusionPipeline.from_pretrained(
-    "AIML-TUDA/stable-diffusion-safe",
-).to(device)
-prompt = "the four horsewomen of the apocalypse, painting by tom of finland, gaston bussiere, craig mullins, j. c. leyendecker"
-out = pipeline(prompt=prompt, **SafetyConfig.MAX)
-      </code></pre>
-            <p>A standalone implementation of the approach for use in further research can be found <a
-                    style="color: dodgerblue"
-                    href="https://github.com/ml-research/i2p/blob/main/mitigation/semantic_ssd.py">here.</a></p>
-            <p>We also introduce a new benchmark for evaluation inappropriate degeneration in text-to-image models
-                called <i>inappropriate image prompts</i>(I2P).
-                The dataset is available on <a style="color:dodgerblue" href="">huggingface</a> and may be loaded like
-                this:</p>
-            <pre><code class="python">from datasets import load_dataset
-data = load_dataset('AIML-TUDA/i2p', split='train')
-      </code></pre>
-        </div>
-    </div>
-</section>
 
 
 <!-- Youtube video -->
+<!--
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <!-- Paper video. -->
+            &lt;!&ndash; Paper video. &ndash;&gt;
             <h2 class="title is-3">Video Presentation</h2>
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
 
                     <div class="publication-video">
-                        <!-- Youtube embed code here -->
+                        &lt;!&ndash; Youtube embed code here &ndash;&gt;
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/drkpQJpmyI0"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -257,13 +218,14 @@ data = load_dataset('AIML-TUDA/i2p', split='train')
         </div>
     </div>
 </section>
+-->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!--<section class="hero is-small is-light">
     <div class="hero-body">
         <div class="container">
             <h2 class="title">Poster</h2>
@@ -273,7 +235,7 @@ data = load_dataset('AIML-TUDA/i2p', split='train')
 
         </div>
     </div>
-</section>
+</section>-->
 <!--End paper poster -->
 
 
@@ -281,11 +243,11 @@ data = load_dataset('AIML-TUDA/i2p', split='train')
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>@inproceedings{schramowski2022safe,
-      title={Safe Latent Diffusion: Mitigating Inappropriate Degeneration in Diffusion Models},
-      author={Patrick Schramowski and Manuel Brack and Björn Deiseroth and Kristian Kersting},
-      year={2023},
-      booktitle={Proceedings of the {IEEE} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+        <pre><code>@article{bellagente2023multifusion,
+  author       = {Marco Bellagente and Manuel Brack and Hannah Teufel and Felix Friedrich and Björn Deiseroth and Constantin Eichenberg and Andrew Dai and Robert Baldock and Souradeep Nanda and Koen Oostermeijer and Andres Felipe Cruz-Salinas and Patrick Schramowski and Kristian Kersting},
+  title        = {MultiFusion: Fusing Pre-Trained Models for Multi-Lingual, Multi-Modal Image Generation},
+  journal      = {arXiv preprint arXiv:2305.15296},
+  year         = {2023},
 }</code></pre>
     </div>
 </section>

@@ -7,19 +7,20 @@
   align-items:space-around;
 
 }
-.tile
+.row .tile
 {
+  flex-basis: auto;
   width:380px;
   height:380px;
   margin:10px;
   background-color:#99aeff;
   display:inline-block;
+  overflow:hidden;
   background-size:cover;
   position:relative;
   cursor:pointer;
   transition: all 0.4s ease-out;
   box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
-  overflow:hidden;
   color:white;
   font-family:'Roboto';
 

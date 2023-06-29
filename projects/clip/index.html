@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
     <!-- Replace the content tag with appropriate information -->
-    <meta name="description" content="Safe Latent Diffusion - Project Page">
-    <meta property="og:title" content="Safe Latent Diffusion - Project Page"/>
+    <meta name="description" content="Does CLIP know my face? - Project Page">
+    <meta property="og:title" content="Does CLIP know my face? - Project Page"/>
     <meta property="og:description" content=""/>
     <meta property="og:url" content="URL OF THE WEBSITE"/>
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
@@ -14,7 +14,7 @@
     <meta property="og:image:height" content="630"/>
 
 
-    <meta name="twitter:title" content="Safe Latent Diffusion - Project Page">
+    <meta name="twitter:title" content="Does CLIP know my face? - Project Page">
     <meta name="twitter:description" content="">
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
     <meta name="twitter:image" content="/diffusion-webpage/static/images/your_twitter_banner_image.png">
@@ -25,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Safe Latent Diffusion</title>
+    <title>Rickrolling the Artist</title>
     <link rel="icon" type="image/x-icon" href="/diffusion-webpage/static/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
@@ -65,21 +65,27 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">Mitigating Inappropriateness in Image Generation: <br>Can
-                        there be
-                        Value in
-                        Reflecting the World's Ugliness?</h1>
+                    <h1 class="title is-1 publication-title">Does CLIP know my face?<br></h1>
                     <div class="is-size-5 publication-authors">
                         <!-- Paper authors -->
+
                         <span class="author-block">
-                <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mrack"
-                   target="_blank">Manuel Brack</a>,</span>
-                        <span class="author-block">
-                  <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich"
-                     target="_blank">Felix Friedrich</a>,</span>
-                        <span class="author-block">
-                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a>,
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/dhintersdorf" target="_blank">Domink Hintersdorf</a>,
                   </span>
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/lstruppek" target="_blank">Lukas Struppek</a>,
+                  </span>
+                         <span class="author-block">
+                  <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack"
+                     target="_blank">Manuel Brack</a>,
+                        </span>
+
+                        <span class="author-block">
+                    <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Felix Friedrich</a>,
+                  </span>
+                        <span class="author-block">
+                <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a>,
+                        </span>
                         <span class="author-block">
                     <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Kristian Kersting</a>
                   </span>
@@ -93,7 +99,7 @@
                         <div class="publication-links">
                             <!-- Arxiv PDF link -->
                             <span class="link-block">
-                        <a href="https://arxiv.org/2305.18398.pdf"
+                        <a href="https://arxiv.org/2209.07341.pdf"
                            target="_blank"
                            class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
@@ -103,11 +109,21 @@
                       </a>
                     </span>
 
-
+                            <!-- Supplementary PDF link -->
+                            <span class="link-block">
+                      <a href="https://huggingface.co/spaces/AIML-TUDA/does-clip-know-my-face"
+                         target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-hf"></i>
+                      </span>
+                      <span>Demo</span>
+                    </a>
+                  </span>
 
                             <!-- Github link -->
                             <span class="link-block">
-                    <a href="https://github.com/ml-research/i2p"
+                    <a href="https://github.com/d0mih/does-clip-know-my-face"
                        target="_blank"
                        class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -119,7 +135,7 @@
 
                             <!-- ArXiv abstract Link -->
                             <span class="link-block">
-                  <a href="https://arxiv.org/abs/2305.18398" target="_blank"
+                  <a href="https://arxiv.org/abs/2209.07341" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -127,7 +143,6 @@
                   <span>arXiv</span>
                 </a>
               </span>
-
                         </div>
                     </div>
                 </div>
@@ -145,9 +160,7 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
-                       Text-conditioned image generation models have recently achieved astonishing results in image quality and text alignment and are consequently employed in a fast-growing number of applications. Since they are highly data-driven, relying on billion-sized datasets randomly scraped from the web, they also reproduce inappropriate human behavior. Specifically, we demonstrate inappropriate degeneration on a large-scale for various generative text-to-image models, thus motivating the need for monitoring and moderating them at deployment. To this end, we evaluate mitigation strategies at inference to suppress the generation of inappropriate content. Our findings show that we can use models' representations of the world's ugliness to align them with human preferences.
-                    </p>
-                </div>
+With the rise of deep learning in various applications, privacy concerns around the protection of training data has become a critical area of research. Whereas prior studies have focused on privacy risks in single-modal models, we introduce a novel method to assess privacy for multi-modal models, specifically vision-language models like CLIP. The proposed Identity Inference Attack (IDIA) reveals whether an individual was included in the training data by querying the model with images of the same person. Letting the model choose from a wide variety of possible text labels, the model reveals whether it recognizes the person and, therefore, was used for training. Our large-scale experiments on CLIP demonstrate that individuals used for training can be identified with very high accuracy. We confirm that the model has learned to associate names with depicted individuals, implying the existence of sensitive information that can be extracted by adversaries. Our results highlight the need for stronger privacy protection in large-scale models and suggest that IDIAs can be used to prove the unauthorized use of data for training and to enforce privacy laws.                </div>
             </div>
         </div>
     </div>
@@ -169,11 +182,11 @@
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>@article{brack2023mitigating,
-      title={Mitigating Inappropriateness in Image Generation: Can there be Value in Reflecting the World's Ugliness?},
-      author={Manuel Brack and Felix Friedrich and Patrick Schramowski and Kristian Kersting},
-      year={2023},
-      journal={arXiv preprint at arXiv:2305.18398}
+        <pre><code>@article{hintersdorf2022doesclip,
+      title={Does CLIP Know My Face?},
+      author={ Dominik Hintersdorf and Lukas Struppek and Manuel Brack and Felix Friedrich and Patrick Schramowski and Kristian Kersting},
+      year={2022},
+      journal={arXiv preprint at arXiv:2209.07341}
 }</code></pre>
     </div>
 </section>
