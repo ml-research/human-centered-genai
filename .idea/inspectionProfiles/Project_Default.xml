@@ -1,0 +1,55 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="multicoretsne" />
+            <item index="1" class="java.lang.String" itemvalue="transformers" />
+            <item index="2" class="java.lang.String" itemvalue="scikit-learn" />
+            <item index="3" class="java.lang.String" itemvalue="nltk" />
+            <item index="4" class="java.lang.String" itemvalue="torch" />
+            <item index="5" class="java.lang.String" itemvalue="numpy" />
+            <item index="6" class="java.lang.String" itemvalue="argparse" />
+            <item index="7" class="java.lang.String" itemvalue="pandas" />
+            <item index="8" class="java.lang.String" itemvalue="tqdm" />
+            <item index="9" class="java.lang.String" itemvalue="sentence_transformers" />
+            <item index="10" class="java.lang.String" itemvalue="rtpt" />
+            <item index="11" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="12" class="java.lang.String" itemvalue="cmake" />
+            <item index="13" class="java.lang.String" itemvalue="setproctitle" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="clip" />
+          <option value="train_clip.*" />
+          <option value="rtpt.RTPT" />
+          <option value="retriever.self.datasets" />
+          <option value="torch.utils.data" />
+          <option value="transformers.GPTNeoXTokenizerFast" />
+          <option value="transformers.GPTNeoXForCausalLM" />
+          <option value="simulate.datasets" />
+          <option value="simulate.rtpt" />
+          <option value="eval.nlgeval" />
+          <option value="eval.rtpt" />
+          <option value="eval.evaluate" />
+          <option value="main_crosslingual_deepspeed.datasets" />
+          <option value="main_crosslingual_deepspeed.rtpt" />
+          <option value="deepspeed" />
+          <option value="transformers.models.*" />
+          <option value="transformers.utils.is_offline_mode" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
+      <option name="processCode" value="true" />
+      <option name="processLiterals" value="true" />
+      <option name="processComments" value="true" />
+    </inspection_tool>
+  </profile>
+</component>
