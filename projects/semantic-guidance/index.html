@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
     <!-- Replace the content tag with appropriate information -->
-    <meta name="description" content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.">
+    <meta name="description"
+          content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.">
     <meta property="og:title" content="Semantic Guidance - Project Page"/>
-    <meta property="og:description" content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility."/>
+    <meta property="og:description"
+          content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility."/>
     <meta property="og:url" content="URL OF THE WEBSITE"/>
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
     <meta property="og:image" content="/diffusion-webpage/static/image/your_banner_image.png"/>
@@ -15,7 +17,8 @@
 
 
     <meta name="twitter:title" content="Semantic Guidance - Project Page">
-    <meta name="twitter:description" content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.">
+    <meta name="twitter:description"
+          content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.">
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
     <meta name="twitter:image" content="/diffusion-webpage/static/images/your_twitter_banner_image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -110,6 +113,16 @@
 
                             <!-- Supplementary PDF link -->
                             <span class="link-block">
+                      <a href="https://huggingface.co/spaces/AIML-TUDA/semantic-diffusion"
+                         target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-hf"></i>
+                      </span>
+                      <span>Demo</span>
+                    </a>
+                  </span>
+                            <span class="link-block">
                       <a href="https://huggingface.co/docs/diffusers/api/pipelines/semantic_stable_diffusion"
                          target="_blank"
                          class="external-link button is-normal is-rounded is-dark">
@@ -177,48 +190,65 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
 <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+      <img src="/diffusion-webpage/static/images/sega/sega_viz.png" style="max-width: 500px">
+             <img src="/diffusion-webpage/static/images/sega/king_queen_v2.png" style="max-width: 500px">
+                </div>
+      <h2 class="has-text-centered">
+         The overall idea of Sega is best explained using a 2D abstraction of the high dimensional &epsilon;-space. Intuitively, we can understand the space as a composition of arbitrary sub-spaces representing semantic concepts. Let us consider the example of generating an image of a king. The unconditioned noise estimate (black dot) starts at some random point in the &epsilon;-space without semantic grounding. The guidance corresponding to the prompt ``a portrait of a king'' represents a vector (blue vector) moving us into a portion of &epsilon;-space where the concepts `male'
+and royal overlap, resulting in an image of a king.
+We can now further manipulate the generation process using Sega. From the unconditioned starting point, we get the directions of `male' and `female' (orange/green lines) using estimates conditioned on the respective prompts. If we subtract this inferred `male' direction from our prompt guidance and add the `female' one, we now reach a point in the  &epsilon;-space at the intersection of the `royal' and `female' sub-spaces, i.e., a queen. This vector represents the final direction (red vector) resulting from semantic guidance.
+      </h2>
+
+    </div>
+  </div>
+</section>
+
+<!-- Image carousel -->
+<section class="hero is-small is-light">
     <div class="hero-body">
         <div class="container">
             <div id="results-carousel" class="carousel results-carousel">
-                    <div class="item">
-                        <!-- Your image here -->
-                        <img src="/diffusion-webpage/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
-                        <h2 class="subtitle has-text-centered">
-                            SEGA allows for flexible manipulation of image generation using textual instructions.
-                        </h2>
-                    </div>
-                    <div class="item">
-                        <!-- Your image here -->
-                        <img src="/diffusion-webpage/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
-                        <h2 class="subtitle has-text-centered">
-                            Multiple concepts can be combined arbitrarily to achieve complex changes.
-                        </h2>
-                    </div>
-                    <div class="item">
-                        <!-- Your image here -->
-                        <img src="/diffusion-webpage/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
-                        <h2 class="subtitle has-text-centered">
-                            SEGA is architecture-agnostic and can be employed for any model using classifier-free
-                            guidance.
-                        </h2>
-                    </div>
-                    <div class="item">
-                        <!-- Your image here -->
-                        <img src="/diffusion-webpage/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
-                        <h2 class="subtitle has-text-centered">
-                            SEGA is architecture-agnostic and can be employed for any model using classifier-free
-                            guidance.
-                        </h2>
-                    </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="/diffusion-webpage/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
+                    <h2 class="subtitle has-text-centered">
+                        SEGA allows for flexible manipulation of image generation using textual instructions.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="/diffusion-webpage/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
+                    <h2 class="subtitle has-text-centered">
+                        Multiple concepts can be combined arbitrarily to achieve complex changes.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="/diffusion-webpage/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
+                    <h2 class="subtitle has-text-centered">
+                        SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                        guidance.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="/diffusion-webpage/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
+                    <h2 class="subtitle has-text-centered">
+                        SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                        guidance.
+                    </h2>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <!-- End image carousel -->
 
-<section class="hero is-small is-light">
+<section class="hero is-small">
     <div class="hero-body">
         <div class="container">
             <!-- Paper video. -->
