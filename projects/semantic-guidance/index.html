@@ -11,7 +11,7 @@
           content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility."/>
     <meta property="og:url" content="URL OF THE WEBSITE"/>
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-    <meta property="og:image" content="/diffusion-webpage/static/image/your_banner_image.png"/>
+    <meta property="og:image" content="/human-centered-genai/static/image/your_banner_image.png"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
 
@@ -20,7 +20,7 @@
     <meta name="twitter:description"
           content="Text-to-image diffusion models have recently received a lot of interest for their astonishing ability to produce high-fidelity images from text only. However, achieving one-shot generation that aligns with the user's intent is nearly impossible, yet small changes to the input prompt often result in very different images. This leaves the user with little semantic control. To put the user in control, we show how to interact with the diffusion process to flexibly steer it along semantic directions. This semantic guidance (SEGA) allows for subtle and extensive edits, changes in composition and style, as well as optimizing the overall artistic conception. We demonstrate SEGA's effectiveness on a variety of tasks and provide evidence for its versatility and flexibility.">
     <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-    <meta name="twitter:image" content="/diffusion-webpage/static/images/your_twitter_banner_image.png">
+    <meta name="twitter:image" content="/human-centered-genai/static/images/your_twitter_banner_image.png">
     <meta name="twitter:card" content="summary_large_image">
     <!-- Keywords for your paper to be indexed by-->
     <meta name="keywords"
@@ -29,17 +29,17 @@
 
 
     <title>Semantic Guidance</title>
-    <link rel="icon" type="image/x-icon" href="/diffusion-webpage/static/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/human-centered-genai/static/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
 
-    <link rel="stylesheet" href="/diffusion-webpage/static/css/bulma.min.css">
-    <link rel="stylesheet" href="/diffusion-webpage/static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="/diffusion-webpage/static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="/diffusion-webpage/static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/fontawesome.all.min.css">
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link rel="stylesheet" href="/diffusion-webpage/static/css/index.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/index.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
@@ -47,15 +47,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-    <script defer src="/diffusion-webpage/static/js/fontawesome.all.min.js"></script>
-    <script src="/diffusion-webpage/static/js/bulma-carousel.min.js"></script>
-    <script src="/diffusion-webpage/static/js/bulma-slider.min.js"></script>
-    <script src="/diffusion-webpage/static/js/index.js"></script>
+    <script defer src="/human-centered-genai/static/js/fontawesome.all.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-carousel.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-slider.min.js"></script>
+    <script src="/human-centered-genai/static/js/index.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 <div style="margin: 10px">
-    <a href="/diffusion-webpage/index.html"
+    <a href="/human-centered-genai/index.html"
        class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fa fa-home"></i>
@@ -194,8 +194,8 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <div>
-      <img src="/diffusion-webpage/static/images/sega/sega_viz.png" style="max-width: 500px">
-             <img src="/diffusion-webpage/static/images/sega/king_queen_v2.png" style="max-width: 500px">
+      <img src="/human-centered-genai/static/images/sega/sega_viz.png" style="max-width: 500px">
+             <img src="/human-centered-genai/static/images/sega/king_queen_v2.png" style="max-width: 500px">
                 </div>
       <h2 class="has-text-centered">
          The overall idea of Sega is best explained using a 2D abstraction of the high dimensional &epsilon;-space. Intuitively, we can understand the space as a composition of arbitrary sub-spaces representing semantic concepts. Let us consider the example of generating an image of a king. The unconditioned noise estimate (black dot) starts at some random point in the &epsilon;-space without semantic grounding. The guidance corresponding to the prompt ``a portrait of a king'' represents a vector (blue vector) moving us into a portion of &epsilon;-space where the concepts `male'
@@ -214,21 +214,21 @@ We can now further manipulate the generation process using Sega. From the uncond
             <div id="results-carousel" class="carousel results-carousel">
                 <div class="item">
                     <!-- Your image here -->
-                    <img src="/diffusion-webpage/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
+                    <img src="/human-centered-genai/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
                     <h2 class="subtitle has-text-centered">
                         SEGA allows for flexible manipulation of image generation using textual instructions.
                     </h2>
                 </div>
                 <div class="item">
                     <!-- Your image here -->
-                    <img src="/diffusion-webpage/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
+                    <img src="/human-centered-genai/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
                     <h2 class="subtitle has-text-centered">
                         Multiple concepts can be combined arbitrarily to achieve complex changes.
                     </h2>
                 </div>
                 <div class="item">
                     <!-- Your image here -->
-                    <img src="/diffusion-webpage/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
+                    <img src="/human-centered-genai/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
                     <h2 class="subtitle has-text-centered">
                         SEGA is architecture-agnostic and can be employed for any model using classifier-free
                         guidance.
@@ -236,7 +236,7 @@ We can now further manipulate the generation process using Sega. From the uncond
                 </div>
                 <div class="item">
                     <!-- Your image here -->
-                    <img src="/diffusion-webpage/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
+                    <img src="/human-centered-genai/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
                     <h2 class="subtitle has-text-centered">
                         SEGA is architecture-agnostic and can be employed for any model using classifier-free
                         guidance.
@@ -330,7 +330,7 @@ out = pipe(
         <div class="container">
             <h2 class="title">Poster</h2>
 
-            <iframe src="/diffusion-webpage/static/pdfs/cvpr23_poster_sld.pdf" width="100%" height="550">
+            <iframe src="/human-centered-genai/static/pdfs/cvpr23_poster_sld.pdf" width="100%" height="550">
             </iframe>
 
         </div>
