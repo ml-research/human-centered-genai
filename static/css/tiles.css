@@ -79,6 +79,10 @@
 box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
   transform:scale(1.05);
 }
+.tile img
+{
+  opacity: 0.8;
+}
 .tile:hover img
 {
   opacity: 0.2;
