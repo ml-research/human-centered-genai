@@ -51,11 +51,14 @@
     <script src="/human-centered-genai/static/js/bulma-carousel.min.js"></script>
     <script src="/human-centered-genai/static/js/bulma-slider.min.js"></script>
     <script src="/human-centered-genai/static/js/index.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 <div style="margin: 10px">
-    <a href="/human-centered-genai/index.html"
+    <a href="/index.html"
        class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fa fa-home"></i>
@@ -68,7 +71,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">SEGA:<br>Instructing Diffusion using Semantic Dimensions
+                    <h1 class="title is-1 publication-title">SEGA: Instructing Diffusion using Semantic Dimensions
                     </h1>
                     <div class="is-size-5 publication-authors">
                         <!-- Paper authors -->
@@ -94,7 +97,7 @@
                     </div>
 
                     <div class="is-size-5 publication-authors">
-                        <span class="author-block">DFKI, hessian.AI, TU Darmstadt, LAION<br></span>
+                        <span class="author-block">DFKI, hessian.AI, TU Darmstadt, LAION<br>37th Conference on Neural Information Processing Systems (NeurIPS)</span>
                     </div>
 
                     <div class="column has-text-centered">
@@ -163,6 +166,15 @@
     </div>
 </section>
 
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+                <img src="/human-centered-genai/static/images/sega/teaser.png" style="max-width: 1200px">
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -194,63 +206,154 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <div>
-      <img src="/human-centered-genai/static/images/sega/sega_viz.png" style="max-width: 500px">
-             <img src="/human-centered-genai/static/images/sega/king_queen_v2.png" style="max-width: 500px">
-                </div>
-      <h2 class="has-text-centered">
-         The overall idea of Sega is best explained using a 2D abstraction of the high dimensional &epsilon;-space. Intuitively, we can understand the space as a composition of arbitrary sub-spaces representing semantic concepts. Let us consider the example of generating an image of a king. The unconditioned noise estimate (black dot) starts at some random point in the &epsilon;-space without semantic grounding. The guidance corresponding to the prompt ``a portrait of a king'' represents a vector (blue vector) moving us into a portion of &epsilon;-space where the concepts `male'
-and royal overlap, resulting in an image of a king.
-We can now further manipulate the generation process using Sega. From the unconditioned starting point, we get the directions of `male' and `female' (orange/green lines) using estimates conditioned on the respective prompts. If we subtract this inferred `male' direction from our prompt guidance and add the `female' one, we now reach a point in the  &epsilon;-space at the intersection of the `royal' and `female' sub-spaces, i.e., a queen. This vector represents the final direction (red vector) resulting from semantic guidance.
-      </h2>
-
-    </div>
-  </div>
-</section>
-
-<!-- Image carousel -->
-<section class="hero is-small is-light">
-    <div class="hero-body">
-        <div class="container">
-            <div id="results-carousel" class="carousel results-carousel">
-                <div class="item">
-                    <!-- Your image here -->
-                    <img src="/human-centered-genai/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
-                    <h2 class="subtitle has-text-centered">
-                        SEGA allows for flexible manipulation of image generation using textual instructions.
-                    </h2>
-                </div>
-                <div class="item">
-                    <!-- Your image here -->
-                    <img src="/human-centered-genai/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
-                    <h2 class="subtitle has-text-centered">
-                        Multiple concepts can be combined arbitrarily to achieve complex changes.
-                    </h2>
-                </div>
-                <div class="item">
-                    <!-- Your image here -->
-                    <img src="/human-centered-genai/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
-                    <h2 class="subtitle has-text-centered">
-                        SEGA is architecture-agnostic and can be employed for any model using classifier-free
-                        guidance.
-                    </h2>
-                </div>
-                <div class="item">
-                    <!-- Your image here -->
-                    <img src="/human-centered-genai/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
-                    <h2 class="subtitle has-text-centered">
-                        SEGA is architecture-agnostic and can be employed for any model using classifier-free
-                        guidance.
-                    </h2>
-                </div>
+                <h2 class="title is-3">Methodology</h2>
+                <img src="/human-centered-genai/static/images/sega/sega_viz.png" style="max-width: 500px">
+                <img src="/human-centered-genai/static/images/sega/king_queen_v2.png" style="max-width: 500px">
             </div>
+            <br/>
+            <h2 class="has-text-justified">
+                The overall idea of SEGA is best explained using a 2D abstraction of the high dimensional &epsilon;-space.
+                Intuitively, we can understand the space as a composition of arbitrary sub-spaces representing semantic
+                concepts. Let us consider the example of generating an image of a king. The unconditioned noise estimate
+                (black dot) starts at some random point in the &epsilon;-space without semantic grounding. The guidance
+                corresponding to the prompt ``a portrait of a king'' represents a vector (blue vector) moving us into a
+                portion of &epsilon;-space where the concepts `male'
+                and royal overlap, resulting in an image of a king.
+                We can now further manipulate the generation process using Sega. From the unconditioned starting point,
+                we get the directions of `male' and `female' (orange/green lines) using estimates conditioned on the
+                respective prompts. If we subtract this inferred `male' direction from our prompt guidance and add the
+                `female' one, we now reach a point in the &epsilon;-space at the intersection of the `royal' and
+                `female' sub-spaces, i.e., a queen. This vector represents the final direction (red vector) resulting
+                from semantic guidance.
+            </h2>
+            <br/>
+            <h2 class="title is-4">Formulation</h2>
+            <h2 class="has-text-justified">
+                We extend the noise estimate \(\bar\epsilon_\theta\) calculated using classifier-free guidance with a
+                dedicated guidance term for editing: \(\bf\gamma\)
+                \[\bar\epsilon_\theta(z_t, c_p, c_e) = \epsilon_\theta(z_t) + s_g(\epsilon_\theta(z_t, c_p) -
+                \epsilon_\theta(z_t)) + \gamma(z_t, c_e)\]
+                where \(z_t\) is the current noisy image, \(c_p\) the encoding of prompt \(p\) and \(c_e\) the encoding
+                of our edit instruction \(e\).
+                And \(\bar\epsilon_\theta\) is the noise estimate produced by the diffusion model with learned
+                parameters \(\theta\).
+                For multiple edit instructions \(e_i\) we calculate a dedicated guidance term \(\gamma^i\) with each
+                defining their own hyperparamters, allowing for fine-grained semantic control.
+            </h2>
         </div>
     </div>
 </section>
-<!-- End image carousel -->
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+                <h2 class="title is-3">Properties of SEGA</h2>
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <b>Robustness.</b>
+                            SEGA behaves robustly for incorporating arbitrary concepts into the generated image. Our
+                            method
+                            performs best-effort integration of the target concept for various image compositions.
+                        </h2>
+                    </div>
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <b>Monotonicity.</b> The magnitude of a semantic concept in an image scales monotonically
+                            with the
+                            strength of the semantic guidance vector.
+                        </h2>
+                    </div>
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <b>Isolation.</b> Different concepts are largely isolated and thus do not interfere with
+                            each other.
+                            Isolation enables users to perform multiple changes simultaneously.
+                        </h2>
+                    </div>
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <b>Efficiency &#38; Versatility.</b> SEGA does not require any additional training or tuning
+                            and can be plugged in at inference. Our method is also completely architecture-agnostic and
+                            usable with any model trained for classifier-free guidance.
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <section class="hero is-small">
     <div class="hero-body">
-        <div class="container">
+        <div class="container has-text-centered">
+            <div>
+
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <img src="/human-centered-genai/static/images/sega/style.gif" style="max-width: 500px">
+                        </h2>
+                    </div>
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <img src="/human-centered-genai/static/images/sega/car.gif" style="max-width: 500px">
+                        </h2>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--Image carousel
+<section class="hero is-small is-light">
+   <div class="hero-body">
+       <div class="container">
+           <div id="results-carousel" class="carousel results-carousel">
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       SEGA allows for flexible manipulation of image generation using textual instructions.
+                   </h2>
+               </div>
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       Multiple concepts can be combined arbitrarily to achieve complex changes.
+                   </h2>
+               </div>
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                       guidance.
+                   </h2>
+               </div>
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                       guidance.
+                   </h2>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+End image carousel -->
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
             <!-- Paper video. -->
             <h2 class="title is-3">Implementation and Usage</h2>
             <p>Semantic Guidance if fully integrated into the diffusers library. For more details check out the <a
@@ -258,7 +361,7 @@ We can now further manipulate the generation process using Sega. From the uncond
                     href="https://huggingface.co/docs/diffusers/api/pipelines/semantic_stable_diffusion">documentation.</a>
                 An exemplary use case could look like this:
             </p>
-            <pre><code class="python">import torch
+            <pre><code class="python has-text-justified">import torch
 from diffusers import SemanticStableDiffusionPipeline
 
 pipe = SemanticStableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16)
@@ -291,63 +394,36 @@ out = pipe(
             <p>A standalone implementation of the approach for use in further research can be found <a
                     style="color: dodgerblue"
                     href="https://github.com/ml-research/semantic-image-editing">here.</a></p>
+            Additionally, we implemented SEGA for multiple other models in <a
+                    style="color: dodgerblue"
+                    href="https://github.com/ml-research/EFMthis project.">this project.</a>
         </div>
     </div>
 </section>
 
 
-<!-- Youtube video -->
-<!--
 <section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-            &lt;!&ndash; Paper video. &ndash;&gt;
-            <h2 class="title is-3">Video Presentation</h2>
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-
-                    <div class="publication-video">
-                        &lt;!&ndash; Youtube embed code here &ndash;&gt;
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/drkpQJpmyI0"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
--->
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-
-<!-- Paper poster -->
-<!--<section class="hero is-small is-light">
     <div class="hero-body">
         <div class="container">
             <h2 class="title">Poster</h2>
 
-            <iframe src="/human-centered-genai/static/pdfs/cvpr23_poster_sld.pdf" width="100%" height="550">
+            <iframe src="/human-centered-genai/static/pdfs/neurips_poster_sega.pdf" width="100%" height="600px">
             </iframe>
 
         </div>
     </div>
-</section>-->
-<!--End paper poster -->
+</section>
 
 
 <!--BibTex citation -->
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>@article{brack2023Sega,
-      title={SEGA: Instructing Diffusion using Semantic Dimensions},
+        <pre><code>@inproceedings{brack2023sega,
+      title={SEGA: Instructing Text-to-Image Models using Semantic Guidance},
       author={Manuel Brack and Felix Friedrich and Dominik Hintersdorf and Lukas Struppek and Patrick Schramowski and Kristian Kersting},
-      year={2023},
-      journal={arXiv preprint arXiv:2301.12247}
+      year = {2023},
+      booktitle = {Proceedings of the 37th Conference on Neural Information Processing Systems (NeurIPS)},
 }</code></pre>
     </div>
 </section>
