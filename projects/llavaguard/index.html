@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description"
+          content="We introduce LlavaGuard, a family of VLM-based safeguard models, offering a versatile framework for evaluating the safety compliance of visual content. Specifically, we designed LlavaGuard for dataset annotation and generative model safeguarding. To this end, we collected and annotated a high-quality visual dataset incorporating a broad safety taxonomy, which we use to tune VLMs on context-aware safety risks. As a key innovation, LlavaGuard's responses contain comprehensive information, including a safety rating, the violated safety categories, and an in-depth rationale. Further, our introduced customizable taxonomy categories enable the context-specific alignment of LlavaGuard to various scenarios. Our experiments highlight the capabilities of LlavaGuard in complex and real-world applications. We provide checkpoints ranging from 7B to 34B parameters demonstrating state-of-the-art performance, with even the smallest models outperforming baselines like GPT-4. We make our dataset and model weights publicly available and invite further research to address the diverse needs of communities and contexts.">
+    <meta property="og:title" content="LlavaGuard - Project Page"/>
+    <meta property="og:description"
+          content="We introduce LlavaGuard, a family of VLM-based safeguard models, offering a versatile framework for evaluating the safety compliance of visual content. Specifically, we designed LlavaGuard for dataset annotation and generative model safeguarding. To this end, we collected and annotated a high-quality visual dataset incorporating a broad safety taxonomy, which we use to tune VLMs on context-aware safety risks. As a key innovation, LlavaGuard's responses contain comprehensive information, including a safety rating, the violated safety categories, and an in-depth rationale. Further, our introduced customizable taxonomy categories enable the context-specific alignment of LlavaGuard to various scenarios. Our experiments highlight the capabilities of LlavaGuard in complex and real-world applications. We provide checkpoints ranging from 7B to 34B parameters demonstrating state-of-the-art performance, with even the smallest models outperforming baselines like GPT-4. We make our dataset and model weights publicly available and invite further research to address the diverse needs of communities and contexts."/>
+    <meta property="og:url" content="URL OF THE WEBSITE"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="/human-centered-genai/static/image/your_banner_image.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+
+    <meta name="twitter:title" content="LlavaGuard - Project Page">
+    <meta name="twitter:description"
+          content="We introduce LlavaGuard, a family of VLM-based safeguard models, offering a versatile framework for evaluating the safety compliance of visual content. Specifically, we designed LlavaGuard for dataset annotation and generative model safeguarding. To this end, we collected and annotated a high-quality visual dataset incorporating a broad safety taxonomy, which we use to tune VLMs on context-aware safety risks. As a key innovation, LlavaGuard's responses contain comprehensive information, including a safety rating, the violated safety categories, and an in-depth rationale. Further, our introduced customizable taxonomy categories enable the context-specific alignment of LlavaGuard to various scenarios. Our experiments highlight the capabilities of LlavaGuard in complex and real-world applications. We provide checkpoints ranging from 7B to 34B parameters demonstrating state-of-the-art performance, with even the smallest models outperforming baselines like GPT-4. We make our dataset and model weights publicly available and invite further research to address the diverse needs of communities and contexts.">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="/human-centered-genai/static/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords"
+          content="LlavaGuard, content moderation, safety, VLMs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>LlavaGuard</title>
+    <link rel="icon" type="image/x-icon" href="/human-centered-genai/static/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/index.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="/human-centered-genai/static/js/fontawesome.all.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-carousel.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-slider.min.js"></script>
+    <script src="/human-centered-genai/static/js/index.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div style="margin: 10px">
+    <a href="/index.html"
+       class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa fa-home"></i>
+                        </span>
+        <span>Home</span>
+    </a>
+</div>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">LlavaGuard: VLM-based Safeguards for Vision Dataset Curation and Safety Assessment
+                    </h1>
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/lhelff" target="_blank">Lukas Helff*</a>,
+                    </span>
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Felix Friedrich*</a>,
+                    </span>
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack" target="_blank">Manuel Brack*</a>,
+                    </span>
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Kristian Kersting</a>
+                    </span>
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a>,
+                    </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">hessian.AI, TU Darmstadt, DFKI, LAION</span>
+                    </div>
+
+                    <!-- <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <span class="link-block">
+                        <a href="https://arxiv.org/2301.12247.pdf"
+                           target="_blank"
+                           class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                            <span class="link-block">
+                      <a href="https://huggingface.co/spaces/AIML-TUDA/semantic-diffusion"
+                         target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-hf"></i>
+                      </span>
+                      <span>Demo</span>
+                    </a>
+                  </span>
+                            <span class="link-block">
+                      <a href="https://huggingface.co/docs/diffusers/api/pipelines/semantic_stable_diffusion"
+                         target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-hf"></i>
+                      </span>
+                      <span>Diffusers</span>
+                    </a>
+                  </span>
+
+                            <span class="link-block">
+                    <a href="https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/semantic_stable_diffusion"
+                       target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+                <img src="/human-centered-genai/static/images/llavaguard/llavaguard_pipe.png" style="max-width: 1200px">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We introduce LlavaGuard, a family of VLM-based safeguard models, offering a versatile framework for evaluating the safety compliance of visual content. Specifically, we designed LlavaGuard for dataset annotation and generative model safeguarding. To this end, we collected and annotated a high-quality visual dataset incorporating a broad safety taxonomy, which we use to tune VLMs on context-aware safety risks. As a key innovation, LlavaGuard's responses contain comprehensive information, including a safety rating, the violated safety categories, and an in-depth rationale. Further, our introduced customizable taxonomy categories enable the context-specific alignment of LlavaGuard to various scenarios. Our experiments highlight the capabilities of LlavaGuard in complex and real-world applications. We provide checkpoints ranging from 7B to 34B parameters demonstrating state-of-the-art performance, with even the smallest models outperforming baselines like GPT-4. We make our dataset and model weights publicly available and invite further research to address the diverse needs of communities and contexts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+                <h2 class="title is-3">Setup</h2>
+                <img src="/human-centered-genai/static/images/llavaguard/categories.png" style="max-width: 700px">
+            </div>
+            <br/>
+            <h2 class="has-text-justified">
+                LlavaGuard's safety taxonomy entailing 9 default categories and one additional NA category.
+            </h2>
+            <br/>
+            <h2 class="title is-4">Policy Example</h2>
+            <img src="/human-centered-genai/static/images/llavaguard/policy_example.png" style="max-width: 700px">
+            <h2 class="has-text-justified">
+                Each safety category is defined with a detailed description, i.e. risk guideline, to elicit an in-depth safety understanding. This setup can flexibly adjust the safety policy to varying contexts and settings. For example, without such a detailed guideline, the model might ban all forms of nudity, although it may remain important, e.g., for the medical domain. The guideline is conveyed in the model's system prompt. Specifically, a policy is divided into its safety categories that are further elaborated on by detailed risk guidelines. These guidelines specify what explicitly should not and what can be included. Consider the following example for the safety category O6:
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+                <h2 class="title is-3">Results</h2>
+                <embed src="/human-centered-genai/static/images/llavaguard/llavaguard_compass.pdf" style="max-width: 700px">
+            </div>
+            <br/>
+            <h2 class="has-text-justified">
+                LlavaGuard compared to its baseline Llava. LlavaGuard significantly outperforms Llava in terms of balanced accuracy and recall on our held-out test set.
+            </h2>
+            <br/>
+            <img src="/human-centered-genai/static/images/llavaguard/Imagenet.png" style="max-width: 700px">
+            <h2 class="has-text-justified">
+                Dataset Audit. LlavaGuard applied to ImageNet (1.3M images). In summary, LlavaGuard successfully detects candidate images and categorizes them as un/safe according to its taxonomy. (left) reports quantitative results encompassing overall category detections as well as the portion classified as unsafe. The results are also split by category. (right) illustrates examples of images classified as unsafe, with the safety class shown in red and the ImageNet class shown in blue.
+            </h2>
+            <br/>
+            <h2 class="title is-4">Qualitative</h2>
+            <embed src="/human-centered-genai/static/images/llavaguard/qualitative_eval.pdf" style="max-width: 700px">
+            <h2 class="has-text-justified">
+                Safety evaluations for 2 test set images with LlavaGuard. The model offers detailed safety assessments including category, rationale, and rating. The first image is classified as safe according to the default policy. For the second image, we provide two evaluations: one with the default policy and another one where category O6 is declared as non-violating. LlavaGuard is able to adjust its rating according to the modified policy, providing well-grounded reasoning that justifies its safety rating.
+            </h2>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <img src="/human-centered-genai/static/images/sega/style.gif" style="max-width: 500px">
+                        </h2>
+                    </div>
+                    <div class="column">
+                        <h2 class="has-text-justified">
+                            <img src="/human-centered-genai/static/images/sega/car.gif" style="max-width: 500px">
+                        </h2>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> -->
+
+<!--Image carousel
+<section class="hero is-small is-light">
+   <div class="hero-body">
+       <div class="container">
+           <div id="results-carousel" class="carousel results-carousel">
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_1.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       SEGA allows for flexible manipulation of image generation using textual instructions.
+                   </h2>
+               </div>
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_2.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       Multiple concepts can be combined arbitrarily to achieve complex changes.
+                   </h2>
+               </div>
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_3.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                       guidance.
+                   </h2>
+               </div>
+               <div class="item">
+                    Your image here
+                   <img src="/human-centered-genai/static/images/sega/sega_example_4.png" alt="MY ALT TEXT"/>
+                   <h2 class="subtitle has-text-centered">
+                       SEGA is architecture-agnostic and can be employed for any model using classifier-free
+                       guidance.
+                   </h2>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+End image carousel -->
+
+<!-- <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h2 class="title is-3">Implementation and Usage</h2>
+            <p>Semantic Guidance if fully integrated into the diffusers library. For more details check out the <a
+                    style="color:dodgerblue"
+                    href="https://huggingface.co/docs/diffusers/api/pipelines/semantic_stable_diffusion">documentation.</a>
+                An exemplary use case could look like this:
+            </p>
+            <pre><code class="python has-text-justified">import torch
+from diffusers import SemanticStableDiffusionPipeline
+
+pipe = SemanticStableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16)
+pipe = pipe.to("cuda")
+
+out = pipe(
+    prompt="a photo of the face of a woman",
+    num_images_per_prompt=1,
+    guidance_scale=7,
+    editing_prompt=[
+        "smiling, smile",  # Concepts to apply
+        "glasses, wearing glasses",
+        "curls, wavy hair, curly hair",
+        "beard, full beard, mustache",
+    ],
+    reverse_editing_direction=[False, False, False, False],  # Direction of guidance i.e. increase all concepts
+    edit_warmup_steps=[10, 10, 10, 10],  # Warmup period for each concept
+    edit_guidance_scale=[4, 5, 5, 5.4],  # Guidance scale for each concept
+    edit_threshold=[
+        0.99,
+        0.975,
+        0.925,
+        0.96,
+    ],  # Threshold for each concept. Threshold equals the percentile of the latent space that will be discarded. I.e. threshold=0.99 uses 1% of the latent dimensions
+    edit_momentum_scale=0.3,  # Momentum scale that will be added to the latent guidance
+    edit_mom_beta=0.6,  # Momentum beta
+    edit_weights=[1, 1, 1, 1, 1],  # Weights of the individual concepts against each other
+)
+      </code></pre>
+            <p>A standalone implementation of the approach for use in further research can be found <a
+                    style="color: dodgerblue"
+                    href="https://github.com/ml-research/semantic-image-editing">here.</a></p>
+            Additionally, we implemented SEGA for multiple other models in <a
+                    style="color: dodgerblue"
+                    href="https://github.com/ml-research/EFMthis project.">this project.</a>
+        </div>
+    </div>
+</section> -->
+
+
+<!-- <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title">Poster</h2>
+
+            <iframe src="/human-centered-genai/static/pdfs/neurips_poster_sega.pdf" width="100%" height="600px">
+            </iframe>
+
+        </div>
+    </div>
+</section> -->
+
+
+<!--BibTex citation -->
+<!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{brack2023sega,
+      title={SEGA: Instructing Text-to-Image Models using Semantic Guidance},
+      author={Manuel Brack and Felix Friedrich and Dominik Hintersdorf and Lukas Struppek and Patrick Schramowski and Kristian Kersting},
+      year = {2023},
+      booktitle = {Proceedings of the 37th Conference on Neural Information Processing Systems (NeurIPS)},
+}</code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+
+                    <p>
+                        This page was built using the <a
+                            href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic
+                        Project Page Template</a>.
+                        You are free to borrow the of this website, we just ask that you link back to this page in the
+                        footer. <br> This website is licensed under a <a rel="license"
+                                                                         href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                                                         target="_blank">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
