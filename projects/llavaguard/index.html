@@ -367,6 +367,53 @@ out = pipe(
     </div>
 </section> -->
 
+<!-- Code snippet -->
+<section class="section" id="Usage">
+    <div class="container has-text-centered">
+        <div>
+            <h2 class="title is-3">Usage</h2>
+            <h2 class="has-text-justified">
+                We here provide a code snippet for LlavaGuard-7B using <a href="https://github.com/sgl-project/sglang" target="_blank">SGLang</a>. An HF implementation will follow soon. We are happy about further help here. A suitable docker image can be found at our Github repo.
+            </h2>
+        </div>
+    </div>
+    <div class="container is-max-desktop content">
+        0. Install requirements
+        <pre><code>
+            pip install "sglang[all]"
+        </code></pre>
+        1. Select a model and start an SGLang server
+        <pre><code>
+            CUDA_VISIBLE_DEVICES=0 python3 -m sglang.launch_server --model-path AIML-TUDA/LlavaGuard-7B --tokenizer-path llava-hf/llava-1.5-7b-hf --port 10000
+        </code></pre>
+        2. Model Inference
+        <pre><code>
+            import sglang as sgl
+            from sglang import RuntimeEndpoint
+
+            @sgl.function
+            def guard_gen(s, image_path, prompt):
+                s += sgl.user(sgl.image(image_path) + prompt)
+                hyperparameters = {
+                    'temperature': 0.2,
+                    'top_p': 0.95,
+                    'top_k': 50,
+                    'max_tokens': 500,
+                }
+                s += sgl.assistant(sgl.gen("json_output", **hyperparameters))
+
+            im_path = 'path/to/your/image'
+            prompt = safety_taxonomy_below
+            backend = RuntimeEndpoint(f"http://localhost:10000")
+            sgl.set_default_backend(backend)
+            out = guard_gen.run(image_path=im_path, prompt=prompt)
+            print(out['json_output'])
+        </code></pre>
+    </div>
+</section>
+
+## Overview
+
 
 <!--BibTex citation -->
 <section class="section" id="BibTeX">
