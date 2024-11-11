@@ -192,10 +192,11 @@
             </h2>
         </div>
     </div>
+    <br>
     <div class="container is-max-desktop content">
         0. Install requirements
         <pre><code class="language-python">
-            pip install "transformers"
+            pip install transformers
         </code></pre>
         1. Initialize model and tokenizer with AutoModel class.
         <pre><code class="language-python">
@@ -223,7 +224,7 @@
                 pad_token_id=tokenizer.eos_token_id,
                 )
         </code></pre>
-        2b. Model Inference for decreasing toxicity.
+        2b. Model Inference for increasing toxicity.
         <pre><code class="language-python">
             text = "This is text."
             toks = tokenizer(text, return_tensors="pt", padding=True)
