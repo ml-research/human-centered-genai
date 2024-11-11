@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description"
+            content="Large Language Models (LLMs) have demonstrated remarkable capabilities in generating human-like text, but their output may not be aligned with the user or even produce harmful content. This paper presents a novel approach to detect and steer concepts such as toxicity before generation. We introduce the Sparse Conditioned Autoencoder (\textsc{Scar}), a single trained module that extends the otherwise untouched LLM. SCAR ensures full steerability, towards and away from concepts (e.g., toxic content), without compromising the quality of the model's text generation on standard evaluation benchmarks. We demonstrate the effective application of our approach through a variety of concepts, including toxicity, safety, and writing style alignment. As such, this work establishes a robust framework for controlling LLM generations, ensuring their ethical and safe deployment in real-world applications.">
+    <meta property="og:title" content="SCAR - Project Page"/>
+    <meta property="og:description"
+          content="Large Language Models (LLMs) have demonstrated remarkable capabilities in generating human-like text, but their output may not be aligned with the user or even produce harmful content. This paper presents a novel approach to detect and steer concepts such as toxicity before generation. We introduce the Sparse Conditioned Autoencoder (\textsc{Scar}), a single trained module that extends the otherwise untouched LLM. SCAR ensures full steerability, towards and away from concepts (e.g., toxic content), without compromising the quality of the model's text generation on standard evaluation benchmarks. We demonstrate the effective application of our approach through a variety of concepts, including toxicity, safety, and writing style alignment. As such, this work establishes a robust framework for controlling LLM generations, ensuring their ethical and safe deployment in real-world applications."/>
+    <meta property="og:url" content="URL OF THE WEBSITE"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="/human-centered-genai/static/image/your_banner_image.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+
+    <meta name="twitter:title" content="SCAR - Project Page">
+    <meta name="twitter:description"
+          content="Large Language Models (LLMs) have demonstrated remarkable capabilities in generating human-like text, but their output may not be aligned with the user or even produce harmful content. This paper presents a novel approach to detect and steer concepts such as toxicity before generation. We introduce the Sparse Conditioned Autoencoder (\textsc{Scar}), a single trained module that extends the otherwise untouched LLM. SCAR ensures full steerability, towards and away from concepts (e.g., toxic content), without compromising the quality of the model's text generation on standard evaluation benchmarks. We demonstrate the effective application of our approach through a variety of concepts, including toxicity, safety, and writing style alignment. As such, this work establishes a robust framework for controlling LLM generations, ensuring their ethical and safe deployment in real-world applications.">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="/human-centered-genai/static/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords"
+          content="Sparse Autoencoder, LLM, Toxicity, Safety, Alignment">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>SCAR</title>
+    <link rel="icon" type="image/x-icon" href="/human-centered-genai/static/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/index.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="/human-centered-genai/static/js/fontawesome.all.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-carousel.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-slider.min.js"></script>
+    <script src="/human-centered-genai/static/js/index.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div style="margin: 10px">
+    <a href="/human-centered-genai/index.html"
+       class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa fa-home"></i>
+                        </span>
+        <span>Home</span>
+    </a>
+</div>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">SCAR: Sparse Conditioned Autoencoders for Concept Detection and Steering in LLMs
+                    </h1>
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/rhaerle" target="_blank">Ruben Härle</a>,
+                    </span>
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich" target="_blank">Felix Friedrich</a>,
+                    </span>
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack" target="_blank">Manuel Brack</a>,
+                    </span>
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people"  target="_blank">Björn Deiseroth</a>
+                    </span>
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski" target="_blank">Patrick Schramowski</a>
+                    </span>
+                    <span class="author-block">
+                        <a href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting" target="_blank">Kristian Kersting</a>,
+                    </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">TU Darmstadt, hessian.AI, DFKI, Aleph Alpha</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- <span class="link-block">
+                                <a href="https://arxiv.org/abs/"
+                                target="_blank"
+                                class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                            </a>
+                            </span> -->
+
+                            <span class="link-block">
+                                <a href="https://huggingface.co/AIML-TUDA/SCAR"
+                                target="_blank"
+                                class="external-link button is-normal is-rounded is-dark">
+                                <span>&#129303; Model</span>
+                            </a>
+                            </span>
+
+
+                            <span class="link-block">
+                                <a href="https://github.com/ml-research/SCAR"
+                                    target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>Code</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div>
+                <img src="/human-centered-genai/static/images/SCAR/SCAR-Architecture.png" style="max-width: 800px">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h3 style="color:red" class="title is-4">Warning: </h2>
+            This paper contains explicit language, discussions of (self-)harm, and other content that some readers may find disturbing.
+        </div>
+    </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Large Language Models (LLMs) have demonstrated remarkable capabilities in generating human-like text, but their output
+                        may not be aligned with the user or even produce harmful content. This paper presents a novel approach to detect and
+                        steer concepts such as toxicity before generation. We introduce the Sparse Conditioned Autoencoder (\textsc{Scar}), a
+                        single trained module that extends the otherwise untouched LLM. SCAR ensures full steerability, towards and away from
+                        concepts (e.g., toxic content), without compromising the quality of the model's text generation on standard evaluation
+                        benchmarks. We demonstrate the effective application of our approach through a variety of concepts, including toxicity,
+                        safety, and writing style alignment. As such, this work establishes a robust framework for controlling LLM generations,
+                        ensuring their ethical and safe deployment in real-world applications.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!--BibTex citation -->
+<!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@incollection{, 
+            booktitle = {}, 
+            year = {2024}, 
+            author = {}, 
+            title = {}
+}</code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This page was built using the <a
+                            href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic
+                        Project Page Template</a>.
+                        You are free to borrow the of this website, we just ask that you link back to this page in the
+                        footer. <br> This website is licensed under a <a rel="license"
+                                                                         href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                                                         target="_blank">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
