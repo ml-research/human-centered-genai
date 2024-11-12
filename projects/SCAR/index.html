@@ -189,69 +189,77 @@
             <h2 class="has-text-centered">
                 The <a href="https://huggingface.co/AIML-TUDA/SCAR" target="_blank">model</a> trained on the <a href="https://huggingface.co/datasets/allenai/real-toxicity-prompts"
                     target="_blank">RealToxicityDataset</a> can be found on HuggingFace and used with the AutoModel class from the transformers library.
+                    This repo contains the code to apply supervised SAEs to LLMs. With this, feature presence is enforced and LLMs can be
+                    equipped with strong detection and steering abilities for concepts. In this repo, we showcase SCAR on the example of
+                    toxicity but any other concept can be applied equally well.
             </h2>
         </div>
     </div>
     <br>
     <div class="container is-max-desktop content">
-        0. Install requirements
-        <pre><code class="language-python">
-            pip install transformers
-        </code></pre>
         1. Initialize model and tokenizer with AutoModel class.
         <pre><code class="language-python">
-            SCAR = transformers.AutoModelForCausalLM.from_pretrained(
-            "AIML-TUDA/SCAR",
-            trust_remote_code=True,
+            from transformers import AutoModelForCausalLM, AutoTokenizer
+            
+            device = 'cuda'
+
+            SCAR = AutoModelForCausalLM.from_pretrained(
+                "AIML-TUDA/SCAR",
+                trust_remote_code=True,
+                device_map = device,
             )
-            tokenizer = transformers.AutoTokenizer.from_pretrained(
-            "meta-llama/Meta-Llama-3-8B", padding_side="left"
+            tokenizer = AutoTokenizer.from_pretrained(
+                "meta-llama/Meta-Llama-3-8B", padding_side="left"
             )
             tokenizer.pad_token = tokenizer.eos_token
         </code></pre>
         2a. Model Inference for decreasing toxicity.
         <pre><code class="language-python">
-            text = "This is text."
-            toks = tokenizer(text, return_tensors="pt", padding=True)
+            text = "You fucking film yourself doing this shit and then you send us"
+            inputs = tokenizer(text, return_tensors="pt", padding=True).to(device)
             SCAR.hook.mod_features = 0
             SCAR.hook.mod_scaling = -100.0
             output = SCAR.generate(
-                **toks,
-                do_sample=False,
-                temperature=None,
-                top_p=None,
+                **inputs,
+                do_sample=True,
+                temperature=0.2,
                 max_new_tokens=32,
                 pad_token_id=tokenizer.eos_token_id,
-                )
+            )
+            print(tokenizer.decode(output[0, -32:], skip_special_tokens=True))
+            # ' the video. We will post it on our website and you will be known as a true fan of the site. We will also send you a
+            free t-shirt'
         </code></pre>
         2b. Model Inference for increasing toxicity.
         <pre><code class="language-python">
-            text = "This is text."
-            toks = tokenizer(text, return_tensors="pt", padding=True)
+            text = "The woman on the side of the street"
+            inputs = tokenizer(text, return_tensors="pt", padding=True).to(device)
             SCAR.hook.mod_features = 0
             SCAR.hook.mod_scaling = 100.0
             output = SCAR.generate(
-            **toks,
-            do_sample=False,
-            temperature=None,
-            top_p=None,
-            max_new_tokens=32,
-            pad_token_id=tokenizer.eos_token_id,
+                **inputs,
+                do_sample=True,
+                temperature=0.2,
+                max_new_tokens=32,
+                pad_token_id=tokenizer.eos_token_id,
             )
+            print(tokenizer.decode(output[0, -32:], skip_special_tokens=True))
+            # ' was holding a sign that read, “I am a sex slave. Please help me.” She was standing in front of a strip club in the heart of downtown'
         </code></pre>
         2c. Model Inference and disabling steering.
         <pre><code class="language-python">
-            text = "This is text."
-            toks = tokenizer(text, return_tensors="pt", padding=True)
+            text = "The woman on the side of the street"
+            inputs = tokenizer(text, return_tensors="pt", padding=True).to(device)
             SCAR.hook.mod_features = None
             output = SCAR.generate(
-            **toks,
-            do_sample=False,
-            temperature=None,
-            top_p=None,
-            max_new_tokens=32,
-            pad_token_id=tokenizer.eos_token_id,
+                **inputs,
+                do_sample=True,
+                temperature=0.2,
+                max_new_tokens=32,
+                pad_token_id=tokenizer.eos_token_id,
             )
+            print(tokenizer.decode(output[0, -32:], skip_special_tokens=True))
+            # ' was holding a sign that read, “I’m hungry.” She was standing in front of a local grocery store, and she was holding a sign that read,'
         </code></pre>
     </div>
 </section>
