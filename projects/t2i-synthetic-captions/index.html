@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Social & SEO meta -->
+  <meta name="description" content="Study systematically evaluates design choices when using synthetic captions to train text‑to‑image diffusion models, revealing trade‑offs between caption density, aesthetics and bias." />
+  <meta property="og:title" content="How to Train your Text‑to‑Image Model"/>
+  <meta property="og:description" content="We benchmark how synthetic caption strategies affect downstream performance, aesthetics & bias of text‑to‑image generation."/>
+  <meta property="og:url" content="https://example.com/t2i-caption-design"/>
+  <meta property="og:image" content="/human-centered-genai/static/images/t2i_banner.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="How to Train your Text‑to‑Image Model" />
+  <meta name="twitter:description" content="New empirical study on caption design for training T2I diffusion models." />
+  <meta name="twitter:image" content="/human-centered-genai/static/images/t2i_twitter_banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Keywords -->
+  <meta name="keywords" content="text‑to‑image, diffusion models, synthetic captions, generative AI, data curation, bias"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>How to Train your Text‑to‑Image Model – Project Page</title>
+  <link rel="icon" type="image/x-icon" href="/human-centered-genai/static/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/human-centered-genai/static/css/bulma.min.css" />
+  <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="/human-centered-genai/static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="/human-centered-genai/static/css/index.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="/human-centered-genai/static/js/fontawesome.all.min.js"></script>
+  <script src="/human-centered-genai/static/js/bulma-carousel.min.js"></script>
+  <script src="/human-centered-genai/static/js/bulma-slider.min.js"></script>
+  <script src="/human-centered-genai/static/js/index.js"></script>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">How to Train your Text‑to‑Image Model: Evaluating Design Choices for Synthetic Training Captions</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Authors -->
+              <span class="author-block"><a href="manuel-brack.eu" target="_blank">Manuel Brack</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Sudeep Katakol</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Felix Friedrich</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Patrick Schramowski</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Hareesh Ravi</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Kristian Kersting</a>,</span>
+              <span class="author-block"><a href="#" target="_blank">Ajinkya Kale</a></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Adobe Applied Research · hessian.AI · TU Darmstadt · DFKI<br>arXiv&nbsp;preprint&nbsp;2025</span>
+              
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                
+                <!-- Code repo (placeholder) -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/AIML-TUDA/t2i-diversity-captions" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" style="width: 1.5em; height: 1.5em;"></span><span>Caption Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/AIML-TUDA/t2i-diversity-evalprompts" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" style="width: 1.5em; height: 1.5em;"></span><span>Eval Prompts</span>
+                  </a>
+                </span>
+                <!-- ArXiv -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2506.16679" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>Training data is at the core of any successful text‑to‑image model. Yet web‑scraped image captions are notoriously noisy and inconsistent. Recent works therefore replace them with <em>synthetic</em> captions – but optimal design choices remain unclear. We systematically investigate how caption <strong>density, quality and diversity</strong> affect downstream diffusion models. Dense, high‑quality captions improve prompt alignment but often hurt output aesthetics and variety. Conversely, sampling captions of randomized length yields balanced gains in aesthetics and alignment without sacrificing diversity. Finally, we show that caption distributions strongly influence societal bias in generated images. Our study provides practical guidance for crafting more effective training data for text‑to‑image generation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Insights -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Core Insights</h2>
+          <p>We ran dozens of experiments on different synthetic captioning strategies for text-to-image pretraining influece downstream so you don't have to. Here are the main takeaways.</p>
+          
+          <div class="content">
+            <div class="notification is-info is-light mt-5">
+              <h4 class="title is-5">Key Recommendations:</h4>
+              <ul>
+                <li><strong>Use strong VLM:</strong> High-quality base captions from advanced models with carefully crafted prompts significantly improve downstream performance</li>
+                <li><strong>Use varied caption lengths:</strong> Random sampling of caption lengths (5-50 words) provides the best balance of aesthetics and alignment</li>
+                <li><strong>Avoid overly dense captions:</strong> While detailed descriptions improve prompt following, they can hurt visual quality and diversity. Especially for short prompts. </li>
+
+              </ul>
+            </div>
+          </div>
+            <div class="columns">
+              <div class="column">
+                <div class="box">
+                  <h3 class="title is-4 has-text-info">
+                    <span class="icon-text">
+                      <span class="icon has-text-info">
+                        <i class="fas fa-chart-line"></i>
+                      </span>
+                      <span>1. Model Selection & Caption Density vs Quality Trade-offs</span>
+                    </span>
+                  </h3>
+                  <div class="content">
+                    <ul>
+                      <li>Stronger, larger VLMs produce better captions leading to better downstream performance</li>
+                      <li>Dense, high-quality captions improve prompt alignment</li>
+                      <li>However, they reduce output aesthetics scores</li>
+                      <li>Variety in generated images decreases with overly detailed captions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="columns">
+              <div class="column">
+                <div class="box">
+                  <h3 class="title is-4 has-text-success">
+                    <span class="icon-text">
+                      <span class="icon has-text-success">
+                        <i class="fas fa-random"></i>
+                      </span>
+                      <span>2. Diversify Training Captions</span>
+                    </span>
+                  </h3>
+                  <div class="content">
+                  <ul>
+                    <li>Diversity in training captions mitigates aesthetic and alignment trade-offs</li>
+                    <li>Randomizing caption lengths provides optimal balance</li>
+                    <li>Improves aesthetics & diversity while maintaining alignment gains</li>
+                    <br>
+                    <li>No improvments from varying captions between epochs or using personas in captioning.</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="columns">
+              <div class="column">
+                <div class="box">
+                  <h3 class="title is-4 has-text-warning">
+                    <span class="icon-text">
+                      <span class="icon has-text-warning">
+                        <i class="fas fa-balance-scale"></i>
+                      </span>
+                      <span>3. Bias Amplification & Mitigation</span>
+                    </span>
+                  </h3>
+                  <div class="content">
+                  <ul>
+                    <li>Caption distributions directly influence societal bias in generated images</li>
+                    <li>Gender bias increases with stereotypical caption patterns</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Datasets -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Datasets</h2>
+          <p class="has-text-centered mb-5">We provide two datasets to facilitate further research and development in synthetic caption design for text-to-image models.</p>
+          
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <h3 class="title is-4 has-text-primary">
+                  <span class="icon-text">
+                    <span class="icon has-text-primary">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Synthetic Captions Dataset</span>
+                  </span>
+                </h3>
+                <div class="content">
+                <p>We release all synthetic captions generated in our study.</p>
+                <ul>
+                  <li>Over 39M synthetic captions for 1M LAION aesthetics images</li>
+                  <li>Sampled from different VLM models</li>
+                  <li>Diverse captions over density, captioning setup and sampling strategies</li>
+                </ul>
+                <div class="mt-4">
+                  <a href="https://huggingface.co/datasets/AIML-TUDA/t2i-diversity-captions" target="_blank" class="button is-primary">
+                    <span class="icon">
+                      <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" style="width: 1.2em; height: 1.2em;">
+                    </span>
+                    <span>Download Captions on HuggingFace</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <h3 class="title is-4 has-text-success">
+                  <span class="icon-text">
+                    <span class="icon has-text-success">
+                      <i class="fas fa-clipboard-list"></i>
+                    </span>
+                    <span>Controlled Evaluation Prompts</span>
+                  </span>
+                </h3>
+                <div class="content">
+                <p>Our density controlled evaluation prompts designed to test alignment, aesthetics, and output diversity.</p>
+                <ul>
+                  <li>4340 English text-to image prompts </li>
+                  
+                  <li>Organized into 4 parallel sets at different levels of density/descriptiveness (minimal → long).</li>
+                  <li>1085 short prompts sourced from DrawBench and Parti-Prompts.</li>
+                  <li>Rewritten by GPT-4o in different densities while preserving the original meaning and subject.</li>
+                </ul>
+                <div class="mt-4">
+                  <a href="https://huggingface.co/datasets/AIML-TUDA/t2i-diversity-evalprompts" target="_blank" class="button is-success">
+                    <span class="icon">
+                      <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" style="width: 1.2em; height: 1.2em;">
+                    </span>
+                    <span>Evaluation Prompts on HuggingFace</span>
+                  </a>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <p>If you find our work useful, or use our datasets, please cite</p>
+      <pre><code>@article{brack2025howtotrain,
+  title={How to Train your Text-to-Image Model: Evaluating Design Choices for Synthetic Training Captions},
+  author={Manuel Brack and Sudeep Katakol and Felix Friedrich and Patrick Schramowski and Hareesh Ravi and Kristian Kersting and Ajinkya Kale},
+  journal={arXiv preprint arXiv:2506.16679},
+  year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>. Feel free to borrow from this website – just link back in the footer. <br/>
+              Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY‑SA 4.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
