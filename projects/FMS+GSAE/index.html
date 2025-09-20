@@ -226,96 +226,85 @@
     <!-- Methods -->
     <section class="section" id="Methods">
         <div class="container is-max-desktop">
-            <div class="columns is-variable is-6">
-                <div class="column">
-                    <h2 class="title is-3">Feature Monosemanticity Score (FMS)</h2>
-                    <div class="content">
-                        <p><strong>Goal.</strong> Quantify whether a single latent unit cleanly corresponds to a
-                            concept.</p>
-                        <p><strong>Components.</strong></p>
-                        <ul>
-                            <li><strong>Feature capacity</strong> — accuracy of the best single latent for the concept.
-                            </li>
-                            <li><strong>Local disentanglement</strong> — remove that latent and re-evaluate;
-                                monosemantic concepts should drop toward chance.</li>
-                            <li><strong>Global disentanglement</strong> — track marginal gains when adding more latents;
-                                truly monosemantic concepts should not need backup.</li>
-                        </ul>
-                        <p><strong>Procedure (decision-tree based).</strong></p>
-                        <ol>
-                            <li>Train a shallow decision tree on SAE latents to localize the most informative latent
-                                (root node).</li>
-                            <li>Record accuracy as you include top-k features along the tree path; compute marginal
-                                gains (global).</li>
-                            <li>Retrain while excluding the top feature(s) to measure the drop (local).</li>
-                        </ol>
-                    </div>
-                    <!-- Formal definitions for FMS -->
-                    <div class="content">                    
-                        <p><strong>Local disentanglement.</strong></p>
-                        <p>\[
-                            \mathrm{FMS}_{\text{local}@p} \;=\; 2 \times \big(\,\mathrm{accs}_{0} - \mathrm{accs}_{p}\,\big)
-                            \] <span class="has-text-grey"></span></p>
-                    
-                        <p><strong>Global disentanglement.</strong></p>
-                        <p>\[
-                            A(n) \;=\; \sum_{i=1}^{n}\big(\mathrm{accs\_cum}_{i} - \mathrm{accs}_{0}\big), \qquad
-                            \mathrm{FMS}_{\text{global}} \;=\; 1 - \frac{A(n)}{n}
-                            \] <span class="has-text-grey"></span></p>
-                    
-                        <p><strong>Overall score.</strong></p>
-                        <p>\[
-                            \mathrm{FMS}@p \;=\; \frac{1}{|C|}\sum_{i=1}^{|C|}
-                            \mathrm{accs}^{c_i}_{0}\;\times\;
-                            \frac{\mathrm{FMS}^{c_i}_{\text{local}@p} + \mathrm{FMS}^{c_i}_{\text{global}}}{2}
-                            \] <span class="has-text-grey"></span></p>
-                    
-                        <p class="has-text-grey">Features are ranked by a Gini tree; the root gives <em>accs</em><sub>0</sub>, the path
-                            gives <em>accs_cum</em>, and iterative retraining with roots removed estimates locality.</p>
-                    </div>
-
-
-                </div>
-                <div class="column">
-                    <h2 class="title is-4">Guided Sparse Autoencoders (G‑SAE)</h2>
-                    <div class="content">
-                        <p><strong>Idea.</strong> Reserve a small set of latent indices for labeled concepts and condition them during training
-                            so each index becomes monosemantic by design.</p>
-                        <ul>
-                            <li><strong>Encoder activations:</strong> Sigmoid(Top‑K) to obtain sparse, interpretable [0,1] latents.</li>
-                            <li><strong>Conditioning loss:</strong> Binary cross-entropy on reserved indices; if concept \(c\) is present, drive
-                                latent \(f_{j(c)}\) toward 1, else toward 0.</li>
-                            <li><strong>Detection:</strong> inspect index \(j(c)\) directly at inference.</li>
-                            <li><strong>Steering:</strong> use the decoder column \(D_i\) as a steering vector; modify the residual stream \(\hat{\mathbf x} = \mathbf x + \alpha \times \sum\nolimits_{i=0}^c \left(\beta_i \times \gamma_i \times
-                            D_{\cdot,i}\right)\;\) with steering strength \(\alpha\), normalization factor \(\beta\), and balancing term \(\gamma\).</li>
-                        </ul>
-                        <div class="content">
-                            <p><strong>Architecture.</strong></p>
-                            <p>\[
-                                \operatorname{SAE}(x) = D(\sigma(E(x))),\quad
-                                E(x) = W_{\text{enc}}x + b_{\text{enc}} = h,\quad
-                                D(f) = W_{\text{dec}}f + b_{\text{dec}} = \hat x,\quad
-                                \sigma(h) = \mathrm{Sigmoid}(\mathrm{TopK}(h)) = f
-                                \] <span class="has-text-grey"></span></p>
-                        
-                            <p><strong>Losses.</strong> Normalized MSE reconstruction and BCE conditioning on a reserved block
-                                \( f[0{:}c]=(f_0,\dots,f_c) \):</p>
-                            <p>\[
-                                \mathcal{L}_r = \frac{\lVert \hat x - x \rVert^2}{\lVert x \rVert^2}, \qquad
-                                \mathcal{L}_c = \mathrm{BCE}(f[0{:}c], y)
-                                = -\frac{1}{c+1}\sum_{i=0}^{c}\big(y_i \log f_i + (1-y_i)\log(1-f_i)\big), \qquad
-                                \mathcal{L}_{\text{total}} = \mathcal{L}_r + \mathcal{L}_c
-                                \] <span class="has-text-grey"></span></p>
-                        
-                            <p><strong>Detection & Steering.</strong> For concept \(i\), decoder column \(D_{\cdot,i}\in\mathbb{R}^d\) is the
-                                steering direction. Normalize and combine with</p>
-                            <p>\[
-                                \beta_i = \frac{\lVert x \rVert_2}{\lVert D_{\cdot,i} \rVert_2}, \qquad
-                                \gamma_i \in \{1,\, f_i,\, 1-f_i\}, \qquad
-                                \hat x = x + \alpha \sum_{i=0}^{c} \big( \beta_i\, \gamma_i\, D_{\cdot,i} \big)
-                                \] <span class="has-text-grey"></span></p>
-                        
-                </div>
+            <h2 class="title is-3">Feature Monosemanticity Score (FMS)</h2>
+            <div class="content">
+                <p><strong>Goal.</strong> Quantify whether a single latent unit cleanly corresponds to a
+                    concept.</p>
+                <p><strong>Components.</strong></p>
+                <ul>
+                    <li><strong>Feature capacity</strong> — accuracy of the best single latent for the concept.
+                    </li>
+                    <li><strong>Local disentanglement</strong> — remove that latent and re-evaluate;
+                        monosemantic concepts should drop toward chance.</li>
+                    <li><strong>Global disentanglement</strong> — track marginal gains when adding more latents;
+                        truly monosemantic concepts should not need backup.</li>
+                </ul>
+                <p><strong>Procedure (decision-tree based).</strong></p>
+                <ol>
+                    <li>Train a shallow decision tree on SAE latents to localize the most informative latent
+                        (root node).</li>
+                    <li>Record accuracy as you include top-k features along the tree path; compute marginal
+                        gains (global).</li>
+                    <li>Retrain while excluding the top feature(s) to measure the drop (local).</li>
+                </ol>               
+                <p><strong>Local disentanglement.</strong></p>
+                <p>\[
+                    \mathrm{FMS}_{\text{local}@p} \;=\; 2 \times \big(\,\mathrm{accs}_{0} - \mathrm{accs}_{p}\,\big)
+                    \] <span class="has-text-grey"></span></p>
+            
+                <p><strong>Global disentanglement.</strong></p>
+                <p>\[
+                    A(n) \;=\; \sum_{i=1}^{n}\big(\mathrm{accs\_cum}_{i} - \mathrm{accs}_{0}\big), \qquad
+                    \mathrm{FMS}_{\text{global}} \;=\; 1 - \frac{A(n)}{n}
+                    \] <span class="has-text-grey"></span></p>
+            
+                <p><strong>Overall score.</strong></p>
+                <p>\[
+                    \mathrm{FMS}@p \;=\; \frac{1}{|C|}\sum_{i=1}^{|C|}
+                    \mathrm{accs}^{c_i}_{0}\;\times\;
+                    \frac{\mathrm{FMS}^{c_i}_{\text{local}@p} + \mathrm{FMS}^{c_i}_{\text{global}}}{2}
+                    \] <span class="has-text-grey"></span></p>
+            
+                <p class="has-text-grey">Features are ranked by a Gini tree; the root gives <em>accs</em><sub>0</sub>, the path
+                    gives <em>accs_cum</em>, and iterative retraining with roots removed estimates locality.</p>
+            </div>
+            <h2 class="title is-3">Guided Sparse Autoencoders (G‑SAE)</h2>
+            <div class="content">
+                <p><strong>Idea.</strong> Reserve a small set of latent indices for labeled concepts and condition them during training
+                    so each index becomes monosemantic by design.</p>
+                <ul>
+                    <li><strong>Encoder activations:</strong> Sigmoid(Top‑K) to obtain sparse, interpretable [0,1] latents.</li>
+                    <li><strong>Conditioning loss:</strong> Binary cross-entropy on reserved indices; if concept \(c\) is present, drive
+                        latent \(f_{j(c)}\) toward 1, else toward 0.</li>
+                    <li><strong>Detection:</strong> inspect index \(j(c)\) directly at inference.</li>
+                    <li><strong>Steering:</strong> use the decoder column \(D_i\) as a steering vector; modify the residual stream 
+                        \(\hat{\mathbf x} = \mathbf x + \alpha \times \sum\nolimits_{i=0}^c \left(\beta_i \times \gamma_i \times
+                    D_{\cdot,i}\right)\;\) with steering strength \(\alpha\), normalization factor \(\beta\), and balancing term \(\gamma\).</li>
+                </ul>
+                <p><strong>Architecture.</strong></p>
+                <p>\[
+                    \operatorname{SAE}(x) = D(\sigma(E(x))),\quad
+                    E(x) = W_{\text{enc}}x + b_{\text{enc}} = h,\quad
+                    D(f) = W_{\text{dec}}f + b_{\text{dec}} = \hat x,\quad
+                    \sigma(h) = \mathrm{Sigmoid}(\mathrm{TopK}(h)) = f
+                    \] <span class="has-text-grey"></span></p>
+            
+                <p><strong>Losses.</strong> Normalized MSE reconstruction and BCE conditioning on a reserved block
+                    \( f[0{:}c]=(f_0,\dots,f_c) \):</p>
+                <p>\[
+                    \mathcal{L}_r = \frac{\lVert \hat x - x \rVert^2}{\lVert x \rVert^2}, \qquad
+                    \mathcal{L}_c = \mathrm{BCE}(f[0{:}c], y)
+                    = -\frac{1}{c+1}\sum_{i=0}^{c}\big(y_i \log f_i + (1-y_i)\log(1-f_i)\big), \qquad
+                    \mathcal{L}_{\text{total}} = \mathcal{L}_r + \mathcal{L}_c
+                    \] <span class="has-text-grey"></span></p>
+            
+                <p><strong>Detection & Steering.</strong> For concept \(i\), decoder column \(D_{\cdot,i}\in\mathbb{R}^d\) is the
+                    steering direction. Normalize and combine with</p>
+                <p>\[
+                    \beta_i = \frac{\lVert x \rVert_2}{\lVert D_{\cdot,i} \rVert_2}, \qquad
+                    \gamma_i \in \{1,\, f_i,\, 1-f_i\}, \qquad
+                    \hat x = x + \alpha \sum_{i=0}^{c} \big( \beta_i\, \gamma_i\, D_{\cdot,i} \big)
+                    \] <span class="has-text-grey"></span></p>
             </div>
         </div>
     </section>
