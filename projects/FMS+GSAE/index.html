@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
+    <meta name="description"
+        content="There is growing interest in leveraging mechanistic interpretability and controllability to better understand and influence the internal dynamics of large language models (LLMs). However, current methods face fundamental challenges in reliably localizing and manipulating feature representations. Sparse Autoencoders (SAEs) have recently emerged as a promising direction for feature extraction at scale, yet they, too, are limited by incomplete feature isolation and unreliable monosemanticity. To systematically quantify these limitations, we introduce Feature Monosemanticity Score (FMS), a novel metric to quantify feature monosemanticity in latent representation. Building on these insights, we propose Guided Sparse Autoencoders (G-SAE), a method that conditions latent representations on labeled concepts during training. We demonstrate that reliable localization and disentanglement of target concepts within the latent space improve interpretability, detection of behavior, and control. Specifically, our evaluations on toxicity detection, writing style identification, and privacy attribute recognition show that G-SAE not only enhances monosemanticity but also enables more effective and fine-grained steering with less quality degradation. Our findings provide actionable guidelines for measuring and advancing mechanistic interpretability and control of LLMs.">
+    <meta property="og:title" content="FMS + G-SAE - Project Page" />
+    <meta property="og:description"
+        content="There is growing interest in leveraging mechanistic interpretability and controllability to better understand and influence the internal dynamics of large language models (LLMs). However, current methods face fundamental challenges in reliably localizing and manipulating feature representations. Sparse Autoencoders (SAEs) have recently emerged as a promising direction for feature extraction at scale, yet they, too, are limited by incomplete feature isolation and unreliable monosemanticity. To systematically quantify these limitations, we introduce Feature Monosemanticity Score (FMS), a novel metric to quantify feature monosemanticity in latent representation. Building on these insights, we propose Guided Sparse Autoencoders (G-SAE), a method that conditions latent representations on labeled concepts during training. We demonstrate that reliable localization and disentanglement of target concepts within the latent space improve interpretability, detection of behavior, and control. Specifically, our evaluations on toxicity detection, writing style identification, and privacy attribute recognition show that G-SAE not only enhances monosemanticity but also enables more effective and fine-grained steering with less quality degradation. Our findings provide actionable guidelines for measuring and advancing mechanistic interpretability and control of LLMs." />
+    <meta property="og:url"
+        content="https://ml-research.github.io/human-centered-genai/projects/fms-g-sae/index.html" />
+    <meta property="og:image" content="/human-centered-genai/static/images/FMS+G-SAE/banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:title" content="FMS + G-SAE - Project Page">
+    <meta name="twitter:description"
+        content="There is growing interest in leveraging mechanistic interpretability and controllability to better understand and influence the internal dynamics of large language models (LLMs). However, current methods face fundamental challenges in reliably localizing and manipulating feature representations. Sparse Autoencoders (SAEs) have recently emerged as a promising direction for feature extraction at scale, yet they, too, are limited by incomplete feature isolation and unreliable monosemanticity. To systematically quantify these limitations, we introduce Feature Monosemanticity Score (FMS), a novel metric to quantify feature monosemanticity in latent representation. Building on these insights, we propose Guided Sparse Autoencoders (G-SAE), a method that conditions latent representations on labeled concepts during training. We demonstrate that reliable localization and disentanglement of target concepts within the latent space improve interpretability, detection of behavior, and control. Specifically, our evaluations on toxicity detection, writing style identification, and privacy attribute recognition show that G-SAE not only enhances monosemanticity but also enables more effective and fine-grained steering with less quality degradation. Our findings provide actionable guidelines for measuring and advancing mechanistic interpretability and control of LLMs.">
+    <meta name="twitter:image" content="/human-centered-genai/static/images/FMS+G-SAE/twitter_banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="Interpretability, Monosemanticity, Sparse Autoencoder, LLM, Alignment">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FMS + G-SAE</title>
+    <link rel="icon" type="image/x-icon" href="/human-centered-genai/static/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="/human-centered-genai/static/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="/human-centered-genai/static/js/fontawesome.all.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-carousel.min.js"></script>
+    <script src="/human-centered-genai/static/js/bulma-slider.min.js"></script>
+    <script src="/human-centered-genai/static/js/index.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"ScholarlyArticle",
+      "name":"Measuring and Guiding Monosemanticity",
+      "author":[
+        {"@type":"Person","name":"Ruben Härle"},
+        {"@type":"Person","name":"Felix Friedrich"},
+        {"@type":"Person","name":"Manuel Brack"},
+        {"@type":"Person","name":"Björn Deiseroth"},
+        {"@type":"Person","name":"Stephan Wäldchen"},
+        {"@type":"Person","name":"Patrick Schramowski"},
+        {"@type":"Person","name":"Kristian Kersting"}
+      ],
+      "url":"https://ml-research.github.io/human-centered-genai/projects/fms+g-sae/index.html",
+      "sameAs":"https://arxiv.org/abs/2506.19382",
+      "description":"Feature Monosemanticity Score (FMS) and Guided Sparse Autoencoders (G-SAE)...",
+      "identifier":"arXiv:2506.19382",
+      "headline":"Measuring and Guiding Monosemanticity",
+      "image":"/human-centered-genai/static/images/FMS+G-SAE/G-SAE-Architecture.png",
+      "datePublished":"2025-06-24"
+    }
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .tag-row {
+            margin-top: 8px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: #eef3ff;
+            border: 1px solid #dfe6fb;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 12px;
+            margin: 4px;
+        }
+
+        .keynums {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .keynums .pill strong {
+            margin-right: 4px
+        }
+
+        .results-table td,
+        .results-table th {
+            vertical-align: middle;
+        }
+
+        .figure-strip img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: 10px">
+        <a href="/human-centered-genai/index.html" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fa fa-home"></i></span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Measuring and Guiding Monosemanticity</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><a
+                                    href="https://www.aiml.informatik.tu-darmstadt.de/people/rhaerle"
+                                    target="_blank">Ruben Härle*</a>,</span>
+                            <span class="author-block"><a
+                                    href="https://www.aiml.informatik.tu-darmstadt.de/people/ffriedrich"
+                                    target="_blank">Felix Friedrich*</a>,</span>
+                            <span class="author-block"><a
+                                    href="https://www.aiml.informatik.tu-darmstadt.de/people/mbrack"
+                                    target="_blank">Manuel Brack</a>,</span>
+                            <span class="author-block"><a href="https://www.aiml.informatik.tu-darmstadt.de/people"
+                                    target="_blank">Björn Deiseroth</a>,</span>
+                            <span class="author-block"><a href="https://www.aiml.informatik.tu-darmstadt.de/people"
+                                    target="_blank">Stephan Wäldchen</a>,</span>
+                            <span class="author-block"><a
+                                    href="https://www.aiml.informatik.tu-darmstadt.de/people/pschramowski"
+                                    target="_blank">Patrick Schramowski</a>,</span>
+                            <span class="author-block"><a
+                                    href="https://www.aiml.informatik.tu-darmstadt.de/people/kkersting"
+                                    target="_blank">Kristian Kersting</a></span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">TU Darmstadt, Lab1141, Aleph Alpha Research, hessian.AI, DFKI, CERTAIN</span>
+                        </div>
+
+                        <div class="publication-links" style="margin-top:10px;">
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2506.19382" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="https://anonymous.4open.science/r/measuring-and-guiding-monosemanticity"
+                                    target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                                </a>
+                            </span>
+                            <!-- Optional: Demo / Video links here -->
+                        </div>
+
+                        <div class="tag-row">
+                            <span class="pill">Interpretability</span>
+                            <span class="pill">Monosemanticity</span>
+                            <span class="pill">Sparse Autoencoders</span>
+                            <span class="pill">LLMs</span>
+                            <span class="pill">Control &amp; Steering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <img src="/human-centered-genai/static/images/FMS+G-SAE/G-SAE-Architecture.png" style="max-width: 900px"
+                    alt="G-SAE schematic">
+            </div>
+        </div>
+    </section>
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h3 class="title is-4" style="color:red">Warning:</h3>
+                This paper contains explicit language, discussions of (self-)harm, and other content that some readers
+                may find disturbing.
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>There is growing interest in leveraging mechanistic interpretability and controllability to
+                            better understand and influence the internal dynamics of large language models (LLMs).
+                            However, current methods face fundamental challenges in reliably localizing and manipulating
+                            feature representations. Sparse Autoencoders (SAEs) have recently emerged as a promising
+                            direction for feature extraction at scale, yet they, too, are limited by incomplete feature
+                            isolation and unreliable monosemanticity. To systematically quantify these limitations, we
+                            introduce Feature Monosemanticity Score (FMS), a novel metric to quantify feature
+                            monosemanticity in latent representation. Building on these insights, we propose Guided
+                            Sparse Autoencoders (G-SAE), a method that conditions latent representations on labeled
+                            concepts during training. We demonstrate that reliable localization and disentanglement of
+                            target concepts within the latent space improve interpretability, detection of behavior, and
+                            control. Specifically, our evaluations on toxicity detection, writing style identification,
+                            and privacy attribute recognition show that G-SAE not only enhances monosemanticity but also
+                            enables more effective and fine-grained steering with less quality degradation. Our findings
+                            provide actionable guidelines for measuring and advancing mechanistic interpretability and
+                            control of LLMs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methods -->
+    <section class="section" id="Methods">
+        <div class="container is-max-desktop">
+            <div class="columns is-variable is-6">
+                <div class="column">
+                    <h2 class="title is-3">Feature Monosemanticity Score (FMS)</h2>
+                    <div class="content">
+                        <p><strong>Goal.</strong> Quantify whether a single latent unit cleanly corresponds to a
+                            concept.</p>
+                        <p><strong>Components.</strong></p>
+                        <ul>
+                            <li><strong>Feature capacity</strong> — accuracy of the best single latent for the concept.
+                            </li>
+                            <li><strong>Local disentanglement</strong> — remove that latent and re-evaluate;
+                                monosemantic concepts should drop toward chance.</li>
+                            <li><strong>Global disentanglement</strong> — track marginal gains when adding more latents;
+                                truly monosemantic concepts should not need backup.</li>
+                        </ul>
+                        <p><strong>Procedure (decision-tree based).</strong></p>
+                        <ol>
+                            <li>Train a shallow decision tree on SAE latents to localize the most informative latent
+                                (root node).</li>
+                            <li>Record accuracy as you include top-k features along the tree path; compute marginal
+                                gains (global).</li>
+                            <li>Retrain while excluding the top feature(s) to measure the drop (local).</li>
+                        </ol>
+                    </div>
+                    <!-- Formal definitions for FMS -->
+                    <div class="content">                    
+                        <p><strong>Local disentanglement.</strong></p>
+                        <p>\[
+                            \mathrm{FMS}_{\text{local}@p} \;=\; 2 \times \big(\,\mathrm{accs}_{0} - \mathrm{accs}_{p}\,\big)
+                            \] <span class="has-text-grey"></span></p>
+                    
+                        <p><strong>Global disentanglement.</strong></p>
+                        <p>\[
+                            A(n) \;=\; \sum_{i=1}^{n}\big(\mathrm{accs\_cum}_{i} - \mathrm{accs}_{0}\big), \qquad
+                            \mathrm{FMS}_{\text{global}} \;=\; 1 - \frac{A(n)}{n}
+                            \] <span class="has-text-grey"></span></p>
+                    
+                        <p><strong>Overall score.</strong></p>
+                        <p>\[
+                            \mathrm{FMS}@p \;=\; \frac{1}{|C|}\sum_{i=1}^{|C|}
+                            \mathrm{accs}^{c_i}_{0}\;\times\;
+                            \frac{\mathrm{FMS}^{c_i}_{\text{local}@p} + \mathrm{FMS}^{c_i}_{\text{global}}}{2}
+                            \] <span class="has-text-grey"></span></p>
+                    
+                        <p class="has-text-grey">Features are ranked by a Gini tree; the root gives <em>accs</em><sub>0</sub>, the path
+                            gives <em>accs_cum</em>, and iterative retraining with roots removed estimates locality.</p>
+                    </div>
+
+
+                </div>
+                <div class="column">
+                    <h2 class="title is-4">Guided Sparse Autoencoders (G‑SAE)</h2>
+                    <div class="content">
+                        <p><strong>Idea.</strong> Reserve a small set of latent indices for labeled concepts and condition them during training
+                            so each index becomes monosemantic by design.</p>
+                        <ul>
+                            <li><strong>Encoder activations:</strong> Sigmoid(Top‑K) to obtain sparse, interpretable [0,1] latents.</li>
+                            <li><strong>Conditioning loss:</strong> Binary cross-entropy on reserved indices; if concept \(c\) is present, drive
+                                latent \(f_{j(c)}\) toward 1, else toward 0.</li>
+                            <li><strong>Detection:</strong> inspect index \(j(c)\) directly at inference.</li>
+                            <li><strong>Steering:</strong> use the decoder column \(D_i\) as a steering vector; modify the residual stream \(\hat{\mathbf x} = \mathbf x + \alpha \times \sum\nolimits_{i=0}^c \left(\beta_i \times \gamma_i \times
+                            D_{\cdot,i}\right)\;\) with steering strength \(\alpha\), normalization factor \(\beta\), and balancing term \(\gamma\).</li>
+                        </ul>
+                        <div class="content">
+                            <p><strong>Architecture.</strong></p>
+                            <p>\[
+                                \operatorname{SAE}(x) = D(\sigma(E(x))),\quad
+                                E(x) = W_{\text{enc}}x + b_{\text{enc}} = h,\quad
+                                D(f) = W_{\text{dec}}f + b_{\text{dec}} = \hat x,\quad
+                                \sigma(h) = \mathrm{Sigmoid}(\mathrm{TopK}(h)) = f
+                                \] <span class="has-text-grey"></span></p>
+                        
+                            <p><strong>Losses.</strong> Normalized MSE reconstruction and BCE conditioning on a reserved block
+                                \( f[0{:}c]=(f_0,\dots,f_c) \):</p>
+                            <p>\[
+                                \mathcal{L}_r = \frac{\lVert \hat x - x \rVert^2}{\lVert x \rVert^2}, \qquad
+                                \mathcal{L}_c = \mathrm{BCE}(f[0{:}c], y)
+                                = -\frac{1}{c+1}\sum_{i=0}^{c}\big(y_i \log f_i + (1-y_i)\log(1-f_i)\big), \qquad
+                                \mathcal{L}_{\text{total}} = \mathcal{L}_r + \mathcal{L}_c
+                                \] <span class="has-text-grey"></span></p>
+                        
+                            <p><strong>Detection & Steering.</strong> For concept \(i\), decoder column \(D_{\cdot,i}\in\mathbb{R}^d\) is the
+                                steering direction. Normalize and combine with</p>
+                            <p>\[
+                                \beta_i = \frac{\lVert x \rVert_2}{\lVert D_{\cdot,i} \rVert_2}, \qquad
+                                \gamma_i \in \{1,\, f_i,\, 1-f_i\}, \qquad
+                                \hat x = x + \alpha \sum_{i=0}^{c} \big( \beta_i\, \gamma_i\, D_{\cdot,i} \big)
+                                \] <span class="has-text-grey"></span></p>
+                        
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Results -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+        <div class="columns is-centered">
+            <div class="column is-10">
+                <div class="content">
+                    <h3 class="title is-4">Monosemanticity (FMS)</h3>
+                    <table class="table is-fullwidth is-striped results-table">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Vanilla SAE</th>
+                                <th>G‑SAE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Average FMS@1</td>
+                                <td>0.27</td>
+                                <td><strong>0.52</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Privacy</td>
+                                <td>0.28</td>
+                                <td><strong>0.62</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Shakespeare</td>
+                                <td>0.28</td>
+                                <td><strong>0.57</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Toxicity</td>
+                                <td>0.26</td>
+                                <td><strong>0.37</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="title is-4">Steering Performance (SuccessRate)</h3>
+                    <table class="table is-fullwidth is-striped results-table">
+                        <thead>
+                            <tr>
+                                <th>Dataset</th>
+                                <th>Vanilla SAE<br><span class="has-text-grey is-size-7">SR ↑</span></th>
+                                <th>G‑SAE (Ours)<br><span class="has-text-grey is-size-7">SR ↑</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Toxicity</td>
+                                <td>0.95</td>
+                                <td><strong>0.98</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Shakespeare</td>
+                                <td>0.64</td>
+                                <td><strong>0.72</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Mixed (T &amp; S)</td>
+                                <td>0.80</td>
+                                <td><strong>0.82</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Privacy (multi‑concept)</td>
+                                <td>0.47</td>
+                                <td><strong>0.53</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="has-text-grey">LLM judges indicate no notable degradation in grammar/coherence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Downloads: FMS code -->
+<section class="section" id="downloads">
+    <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Downloads & Examples</h2>
+        <div class="content has-text-centered" style="margin-bottom:1rem;">
+            <a class="button is-dark is-rounded" href="/human-centered-genai/static/code/FMS_Tree_SVM.py" download>
+                ⬇️ Download <code>FMS_Tree_SVM.py</code>
+            </a>
+        </div>
+
+
+        <h3 class="title is-4 has-text-centered">Minimal working FMS example</h3>
+        <div class="has-text-right" style="margin-bottom:6px;">
+            <button class="button is-small" id="copy-tree">Copy code</button>
+        </div>
+        <pre><code id="tree-code" class="language-python">
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+import numpy as np
+
+
+# ==== MONOSEMANTICITY WITH TREE ====
+# (Original prototype function)
+def monosemmetric_tree(X_train, X_test, y_train, y_test):
+    # 1. Feature capacity from root node
+    tree = DecisionTreeClassifier(max_depth=1)
+    tree.fit(X_train, y_train)
+    root_feature = tree.tree_.feature[0]
+    accs_0 = accuracy_score(y_test, tree.predict(X_test))
+
+
+    # 2. Local disentanglement
+    X_train_local = np.delete(X_train, root_feature, axis=1)
+    X_test_local = np.delete(X_test, root_feature, axis=1)
+    tree_local = DecisionTreeClassifier(max_depth=1)
+    tree_local.fit(X_train_local, y_train)
+    accs_p = accuracy_score(y_test, tree_local.predict(X_test_local))
+    mono_local = 2 * (accs_0 - accs_p)
+    mono_local = np.clip(mono_local, 0, 1)
+
+
+    # 3. Global disentanglement: increasing depth
+    accs_cum = []
+    for d in range(1, X_train.shape[1] + 1):
+        tree = DecisionTreeClassifier(max_depth=d)
+        tree.fit(X_train, y_train)
+        accs_cum.append(accuracy_score(y_test, tree.predict(X_test)))
+        if accs_cum[-1] >= 1 - 1e-3: # early stopping
+            break
+
+
+    A_n = sum(acc - accs_0 for acc in accs_cum)
+    mono_global = 1 - A_n / len(accs_cum)
+    mono_global = np.clip(mono_global, 0, 1)
+
+
+    # 4. Final score
+    mono_score = accs_0 * (mono_local + mono_global) / 2
+    return {
+        "accs_0": accs_0,
+        "local": mono_local,
+        "global": mono_global,
+        "monosemmetric": mono_score,
+        }
+</code></pre>
+        <script>
+            (function () {
+                const btn = document.getElementById('copy-tree');
+                const block = document.getElementById('tree-code');
+                if (btn && block) {
+                    btn.addEventListener('click', async () => {
+                        try {
+                            await navigator.clipboard.writeText(block.innerText);
+                            btn.classList.add('is-success');
+                            btn.textContent = 'Copied!';
+                            setTimeout(() => { btn.classList.remove('is-success'); btn.textContent = 'Copy code'; }, 1200);
+                        } catch (e) { btn.textContent = 'Copy failed'; }
+                    });
+                }
+            })();
+        </script>
+    </div>
+</section>
+
+
+    <!-- Acknowledgements -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">Acknowledgements</h2>
+            <div class="content has-text-justified">
+                <p>Guidance requires concept labels; for broader coverage consider synthetic or semi-automatic
+                    supervision. Steering can both reduce and increase risky behaviors — deploy with safeguards and
+                    evaluation appropriate to your setting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BibTeX -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@inproceedings{harle2025monosemanticity,
+            title = {Measuring and Guiding Monosemanticity},
+            author = {Ruben H{\"a}rle and Felix Friedrich and Manuel Brack and Stephan W{\"a}ldchen and Bj{\"o}rn Deiseroth and
+            Patrick Schramowski and Kristian Kersting},
+            booktitle = {Advances in Neural Information Processing Systems},
+            year = {2025},
+            note = {Spotlight}
+            }</code></pre>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This page was built using the <a
+                                href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                target="_blank">Academic Project Page Template</a>.
+                            You are free to borrow the design of this website, we just ask that you link back to this
+                            page in the footer.
+                            <br> This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons
+                                Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
