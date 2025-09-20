@@ -226,7 +226,7 @@
     <!-- Methods -->
     <section class="section" id="Methods">
         <div class="container is-max-desktop">
-            <h2 class="title is-3">Feature Monosemanticity Score (FMS)</h2>
+            <h2 class="title is-3 has-text-centered">Feature Monosemanticity Score (FMS)</h2>
             <div class="content">
                 <p><strong>Goal.</strong> Quantify whether a single latent unit cleanly corresponds to a
                     concept.</p>
@@ -268,14 +268,14 @@
                 <p class="has-text-grey">Features are ranked by a Gini tree; the root gives <em>accs</em><sub>0</sub>, the path
                     gives <em>accs_cum</em>, and iterative retraining with roots removed estimates locality.</p>
             </div>
-            <h2 class="title is-3">Guided Sparse Autoencoders (G‑SAE)</h2>
+            <h2 class="title is-3 has-text-centered">Guided Sparse Autoencoders (G‑SAE)</h2>
             <div class="content">
                 <p><strong>Idea.</strong> Reserve a small set of latent indices for labeled concepts and condition them during training
                     so each index becomes monosemantic by design.</p>
                 <ul>
                     <li><strong>Encoder activations:</strong> Sigmoid(Top‑K) to obtain sparse, interpretable [0,1] latents.</li>
-                    <li><strong>Conditioning loss:</strong> Binary cross-entropy on reserved indices; if concept \(c\) is present, drive
-                        latent \(f_{j(c)}\) toward 1, else toward 0.</li>
+                    <li><strong>Conditioning loss:</strong> Binary cross-entropy on reserved indices; 
+                        if concept \(c\) is present, drive latent \(f_{j(c)}\) toward 1, else toward 0.</li>
                     <li><strong>Detection:</strong> inspect index \(j(c)\) directly at inference.</li>
                     <li><strong>Steering:</strong> use the decoder column \(D_i\) as a steering vector; modify the residual stream 
                         \(\hat{\mathbf x} = \mathbf x + \alpha \times \sum\nolimits_{i=0}^c \left(\beta_i \times \gamma_i \times
@@ -354,8 +354,8 @@
                         <thead>
                             <tr>
                                 <th>Dataset</th>
-                                <th>Vanilla SAE<br><span class="has-text-grey is-size-7">SR ↑</span></th>
-                                <th>G‑SAE (Ours)<br><span class="has-text-grey is-size-7">SR ↑</span></th>
+                                <th>Vanilla SAE<br></th>
+                                <th>G‑SAE (Ours)<br></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -473,7 +473,7 @@ def monosemmetric_tree(X_train, X_test, y_train, y_test):
 </section>
 
 
-    <!-- Acknowledgements -->
+    <!-- Acknowledgements
     <section class="section">
         <div class="container is-max-desktop">
             <h2 class="title is-3 has-text-centered">Acknowledgements</h2>
@@ -483,7 +483,7 @@ def monosemmetric_tree(X_train, X_test, y_train, y_test):
                     evaluation appropriate to your setting.</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- BibTeX -->
     <section class="section" id="BibTeX">
